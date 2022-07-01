@@ -4,7 +4,7 @@ import "./Navbar.css";
 export default function Navbar() {
     return (
         <nav className="nav">
-            <Link to="/" className="site-title">SwimStat</Link>
+            <Link to="/" className="nav-title">SwimStat</Link>
             <ul>
                 <CustomLink to="/page1">Page 1</CustomLink>
                 <CustomLink to="/page2">Page 2</CustomLink>
