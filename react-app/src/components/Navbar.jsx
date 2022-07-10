@@ -6,7 +6,7 @@ export default function Navbar() {
         <nav className="nav">
             <Link to="/" className="nav-title">SwimStat</Link>
             <ul>
-                <CustomLink to="/page1">Page 1</CustomLink>
+                <CustomLink to="/page1">Custom Entry</CustomLink>
                 <CustomLink to="/page2">Page 2</CustomLink>
             </ul>
         </nav>

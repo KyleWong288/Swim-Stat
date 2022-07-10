@@ -11,5 +11,17 @@ export const Data = [
     {
         Swimmer: 'Person C',
         SwimEvent: '200 Free'    
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: '500 Free'    
+    },
+    {
+        Swimmer: 'Person E',
+        SwimEvent: '100 Fly'    
+    },
+    {
+        Swimmer: 'Person F',
+        SwimEvent: '100 Breast'    
     }
 ]
