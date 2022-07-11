@@ -1,4 +1,5 @@
 import Accordion from "../components/Accordion";
+import Graph from "../components/Graph";
 import "./Home.css";
 
 export default function Home() {
@@ -8,6 +9,9 @@ export default function Home() {
                 <div className="scrollable">
                     <Accordion/>
                 </div>
+            </div>
+            <div className="right-container">
+                <Graph/>
             </div>
         </div>
     )

@@ -2,26 +2,18 @@
 export const Data = [
     {
         Swimmer: 'Person A',
-        SwimEvent: '50 Free'
+        SwimEvent: ["50 Free", "100 Free", "200 Free", "500 Free", "100 Fly"]
     },
     {
         Swimmer: 'Person B',
-        SwimEvent: '100 Free'    
+        SwimEvent: ["100 Breast", "200 IM"]
     },
     {
         Swimmer: 'Person C',
-        SwimEvent: '200 Free'    
+        SwimEvent: ["100 Fly", "200 Fly"]
     },
     {
         Swimmer: 'Person D',
-        SwimEvent: '500 Free'    
-    },
-    {
-        Swimmer: 'Person E',
-        SwimEvent: '100 Fly'    
-    },
-    {
-        Swimmer: 'Person F',
-        SwimEvent: '100 Breast'    
+        SwimEvent: ["800 Free,", "1500 Free"]
     }
 ]

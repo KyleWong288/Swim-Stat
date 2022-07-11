@@ -1,11 +1,20 @@
 .left-container {
     padding-top: 2rem;
+    width: 100vw;
     max-width: 760px;
+    display: inline-block;
+    float: left;
+}
+
+.right-container {
+    display: inline-block;
+    float: left;
+    padding-top: 2rem;
+    padding-left: 2rem;
 }
 
 .scrollable {
     height: 300px;
     overflow-y: auto;
     width: 100%;
-
 }

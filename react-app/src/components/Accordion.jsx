@@ -4,6 +4,8 @@ import './Accordion.css';
 import { ReactComponent as CaretDown } from './caret-down.svg';
 import { ReactComponent as CaretUp } from './caret-up.svg';
 
+
+
 export default function Accordion() {
   const [selected, setSelected] = useState(null)
 
@@ -24,7 +26,15 @@ export default function Accordion() {
 				  <span className="caret">{selected === index ? <CaretUp/> : <CaretDown/>}</span>
 				</div>
 				<div className={selected === index ? 'content.show' : 'content'}>
-				  <div className="swim-events">{item.SwimEvent}</div>
+					{Data.at(index).SwimEvent.map((jtem, jndex) => (
+						<div className="swim-events">
+							{item.SwimEvent.at(jndex)}
+							<button className="button">
+								Plot	
+							</button>
+						</div>
+					))} 
+					
 				</div>
 			 </div>
 		  ))}
