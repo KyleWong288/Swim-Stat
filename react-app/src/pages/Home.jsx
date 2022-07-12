@@ -4,14 +4,17 @@ import "./Home.css";
 
 export default function Home() {
     return(
-        <div>
-            <div className="left-container">
-                <div className="scrollable">
-                    <Accordion/>
+        <div className="overflow">
+            <div className="body">
+                <div className="left-container">
+                    <h1 className="header">Most Popular</h1>
+                    <div className="scrollable">
+                        <Accordion/>
+                    </div>
                 </div>
-            </div>
-            <div className="right-container">
-                <Graph/>
+                <div className="right-container">
+                    <Graph/>
+                </div>
             </div>
         </div>
     )

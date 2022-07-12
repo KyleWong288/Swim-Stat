@@ -1,9 +1,11 @@
 import React from 'react';
+import './Graph.css';
 
 export default function Graph() {
     return (
         <div>
-            <p style={{border: "solid"}}>GRAPH</p>
+            <p className="header">GRAPH</p>
+
         </div>
     )
 }

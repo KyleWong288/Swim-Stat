@@ -15,7 +15,7 @@ export default function Accordion() {
 	 }
 	 setSelected(index)
   }
-  // TODO: Add graph button, add transition animations
+  // TODO: Add transition animation
   return (
 	 <div className="wrapper">
 		<div className="accordion">

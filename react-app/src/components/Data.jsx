@@ -14,6 +14,34 @@ export const Data = [
     },
     {
         Swimmer: 'Person D',
-        SwimEvent: ["800 Free,", "1500 Free"]
+        SwimEvent: ["800 Free", "1500 Free"]
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: ["200 Free"]
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: ["200 Free"]
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: ["200 Free"]
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: ["200 Free"]
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: ["200 Free"]
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: ["200 Free"]
+    },
+    {
+        Swimmer: 'Person D',
+        SwimEvent: ["200 Free"]
     }
 ]

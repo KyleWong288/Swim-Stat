@@ -4,7 +4,7 @@
     max-width: 700px;
     justify-content: left;
     align-items: center;
-    padding-left: 3rem;
+    padding-left: 2rem;
     padding-top: 1rem;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .item {
-    background: #333;
+    background: rgb(30,30,30);
     margin-bottom: 1rem;
     border-radius: 6px;
     color: white;
@@ -55,8 +55,8 @@
     padding-right: 1rem;
     font-size: 1.2rem;
     border-radius: 3px;
-    background-color: rgb(67, 108, 138);
-    border: solid #333;
+    background-color: rgb(70, 105, 140);
+    border: solid rgb(30,30,30);
     margin-bottom: -1px;
     margin-left: 3px;
     margin-right: 3px;
