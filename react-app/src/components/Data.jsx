@@ -2,7 +2,8 @@
 export const Data = [
     {
         Swimmer: 'Person A',
-        SwimEvent: ["50 Free", "100 Free", "200 Free", "500 Free", "100 Fly"]
+        SwimEvent: ["50 Free", "100 Free", "200 Free", "500 Free", "100 Fly"],
+        Times: [ [22.00, 21.40, 21.00, 20.70], [47.00, 46.20, 45.80, 45.70] ]
     },
     {
         Swimmer: 'Person B',

@@ -1,0 +1,28 @@
+.times-header {
+    background: rgb(30,30,30);
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 6rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    width: 300px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.times {
+    background: rgb(30,30,30);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 6rem;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+    width: 300px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
