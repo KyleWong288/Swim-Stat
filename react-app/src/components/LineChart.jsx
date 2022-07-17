@@ -1,35 +1,13 @@
 import React, {useState} from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
-import './LineChart.css';
-import { UserData } from './TestData';
+import "./LineChart.css";
 
-export default function LineChart({ chartData }) {
-    const data = {
-        labels: UserData.map((data) => data.year),
-        datasets: [{
-            // chart styling done here
-            label: "Time",
-            data: UserData.map((data) => data.time),
-            backgroundColor: "rgb(70, 105, 140)",
-            borderColor: "rgb(70, 105, 140)",
-            borderWidth: 3,
-            hoverBackgroundColor: "rgb(170, 230, 255)",
-        }]
-    };
-
-    const options = {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    };
-    
-
+// wrapper for Line
+export default function LineChart({ chartData, options }) {
     return (
-        <div className="LineChart">
-            <Line data={data} options={options}/>
+        <div className="line-chart">
+            <Line data={chartData} options={options} />
         </div>
     )
 }
