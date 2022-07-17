@@ -3,6 +3,7 @@ import { Data } from './Data';
 import './Accordion.css';
 import { ReactComponent as CaretDown } from './caret-down.svg';
 import { ReactComponent as CaretUp } from './caret-up.svg';
+import Graph from "./Graph";
 
 class Button extends Component {
 	state = {
@@ -62,7 +63,7 @@ export default function Accordion() {
 							<button onClick={() => toggleClick(jndex)} className="button">
 								Plot
 							</button> 
-							<span>{clicked === jndex ? <h1> Times </h1> : null }</span>
+							<span>{clicked === jndex ? <div className="graph-right"> <Graph/> </div> : null }</span>
 							
 						</div>
 					))} 

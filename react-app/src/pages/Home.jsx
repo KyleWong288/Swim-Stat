@@ -15,7 +15,7 @@ export default function Home() {
                 </div>
                 <div className="right-container">
                     <h1 className="header">Stats</h1>
-                    <Graph/>
+                    
                     
                 </div>
             </div>

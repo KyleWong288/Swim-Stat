@@ -26,3 +26,12 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+.graph-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    padding-top: 1rem;
+    margin-left: 6rem;
+}
