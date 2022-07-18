@@ -1,6 +1,6 @@
 .overflow {
     overflow: hidden;
-    height: 92.4vh;
+    height: 92vh;
 }
 
 .body {
@@ -9,65 +9,4 @@
     height: 100vh;
 }
 
-.left-container {
-    background-color: #333;
-    margin-left: 2rem;
-    margin-top: 2rem;
-    width: 100vw;
-    max-width: 756px;
-    display: inline-block;
-    float: left;
-    border-radius: 8px;
-    border: solid;
-    border-color: white;
-}
 
-.right-container {
-    background-color: #333;
-    margin-left: 2rem;
-    margin-top: 2rem;
-    max-width: 500px;
-    width: 100vw;
-    display: inline-block;
-    float: left;
-    border-radius: 8px;
-    border: solid;
-    border-color: white;
-}
-
-.scrollable {
-    height: 78vh;
-    overflow-y: auto;
-    width: 100%;
-}
-
-::-webkit-scrollbar {
-    width: 11px;
-}
-
-::-webkit-scrollbar-track {
-    background: white;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgb(160,160,160);
-    border-radius: 6px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgb(190,190,190);
-}
-
-.header {
-    color:white;
-    font-size: 24px;
-    background: rgb(70, 105, 140);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    border-bottom: solid;
-}

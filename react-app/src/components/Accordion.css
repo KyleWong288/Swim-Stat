@@ -1,17 +1,42 @@
+.left-container {
+    background-color: #333;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    width: 100vw;
+    max-width: 640px;
+    display: inline-block;
+    float: left;
+    border-radius: 8px;
+    border: solid;
+    border-color: white;
+}
+
+.right-container {
+    background-color: #333;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    max-width: 660px;
+    width: 100vw;
+    display: inline-block;
+    float: left;
+    border-radius: 8px;
+    border: solid;
+    border-color: white;
+}
+
 .wrapper {
     display: flex;
     width: 90vw;
-    max-width: 700px;
-    justify-content: left;
+    max-width: 600px;
+    justify-content: center;
     align-items: center;
-    padding-left: 2rem;
     padding-top: 1rem;
+    padding-left: 1.2rem;
 }
 
 .accordion {
-    width: 700px;
+    width: 560px;
     border-top: 600px;
-    
 }
 
 .item {
@@ -92,4 +117,56 @@
 .button:hover {
     background: white;
     box-shadow: none;
+}
+
+
+.scrollable {
+    height: 75vh;
+    overflow-y: auto;
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(160,160,160);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(190,190,190);
+}
+
+.header {
+    color:white;
+    font-size: 24px;
+    background: rgb(70, 105, 140);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom: solid;
+}
+
+.graph-container {
+    background: #333;
+}
+
+.no-plot {
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }

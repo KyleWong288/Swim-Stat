@@ -5,6 +5,8 @@ import { ReactComponent as CaretDown } from './caret-down.svg';
 import { ReactComponent as CaretUp } from './caret-up.svg';
 import Graph from "./Graph";
 
+// TODO: Change the "Stats" header to swimmer name and event when graphed
+// left side accordion menu and right side graph display
 class Button extends Component {
 	state = {
 		showTimes: false
@@ -37,17 +39,35 @@ export default function Accordion() {
   }
 
   // Graph Button Toggle:
-  const [clicked, setClicked] = useState(true)
+  const [clicked = -1, setClicked] = useState(true)
 
-  const toggleClick = (index) => {
-	if (clicked === index) {
-		return setClicked(null)
-	}
-	setClicked(index)
+  const toggleClick = (index, jndex) => {
+	// if (clicked === jndex) {
+	// 	return setClicked(null)
+	// }
+	setClicked(jndex)
+  }
+
+  // Interface between accordion and graph:
+  const [displaySwimmer, setDisplaySwimmer] = useState(null)
+  const [displayEvent, setDisplayEvent] = useState(null)
+
+  const toggleDisplay = (index, jndex) => {
+	// if (displaySwimmer === index && displayEvent === jndex) {
+	// 	setDisplaySwimmer(null)
+	// 	setDisplayEvent(null)
+	// 	return
+	// }
+	setDisplaySwimmer(index)
+	setDisplayEvent(jndex)
   }
 
   // TODO: Add transition animation
   return (
+  <div>
+	<div className="left-container">
+	<h1 className="header"> Most Popular </h1>
+	<div className="scrollable">
 	 <div className="wrapper">
 		<div className="accordion">
 		  {Data.map((item, index) => (
@@ -60,11 +80,9 @@ export default function Accordion() {
 					{Data.at(index).SwimEvent.map((jtem, jndex) => (
 						<div className="swim-events">
 							{item.SwimEvent.at(jndex)}
-							<button onClick={() => toggleClick(jndex)} className="button">
+							<button onClick={() => [toggleClick(index,jndex), toggleDisplay(index,jndex)]} className="button">
 								Plot
 							</button> 
-							<span>{clicked === jndex ? <div className="graph-right"> <Graph/> </div> : null }</span>
-							
 						</div>
 					))} 
 					
@@ -72,6 +90,16 @@ export default function Accordion() {
 			 </div>
 		  ))}
 		</div>
+	  </div>
 	 </div>
+	</div>
+	<div className="right-container">
+		<h1 className="header">Stats</h1>
+		<span>{displaySwimmer === selected && displayEvent === clicked ? 
+			<div className="graph-container"> <Graph Times={Data.at(selected).Times.at(clicked)} Years={Data.at(selected).Years.at(clicked)}/> </div> :
+			<div className="no-plot"> (nothing plotted yet) </div> }
+		</span>
+	</div>
+  </div>
   )
 }
