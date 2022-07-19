@@ -96,8 +96,9 @@ export default function Accordion() {
 	<div className="right-container">
 		<h1 className="header">Stats</h1>
 		<span>{displaySwimmer === selected && displayEvent === clicked ? 
-			<div className="graph-container"> <Graph Times={Data.at(selected).Times.at(clicked)} Years={Data.at(selected).Years.at(clicked)}/> </div> :
+			<div className="graph-container"> <Graph Times={Data.at(selected).Times.at(clicked) } Years={Data.at(selected).Years.at(clicked)}/> </div> :
 			<div className="no-plot"> (nothing plotted yet) </div> }
+			
 		</span>
 	</div>
   </div>

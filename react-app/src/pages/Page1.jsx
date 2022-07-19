@@ -1,10 +1,13 @@
 import Accordion from "../components/Accordion";
 import LineChart from "../components/LineChart";
+import LineChart2 from "../components/LineChart2";
 import { useState } from "react";
 import {Data} from '../components/Data';
 import "./Page1.css";
 
 const firstSwimmer = Data.at(0);
+const times = [20, 19, 18];
+const years = [2018, 2019, 2020];
 
 // Chart.js playground for now 
 export default function Page1() {
