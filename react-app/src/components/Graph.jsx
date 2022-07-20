@@ -3,20 +3,19 @@ import './Graph.css';
 import TestGraph from './TestGraphImg.png';
 import LineChart from './LineChart';
 
-// TODO: Make graph a component so it rerenders? Make Y-axis time
+// TODO: Make Y-axis time
 // TODO: Graph should take in props times and years.
 // Display the stats and pass times and years to LineChart
-export default function Graph({Times, Years}) {
-    const times = Times;
-    const years = Years;
+export default function Graph(props) {
+    const times = props.Times;
+    const years = props.Years;
 
-    const [userData, setUserData] = useState({
+    const userData = {
         labels: years.map((item, index) => (
-            item 
+            item
         )),
-        datasets: [{ 
-            // chart styling is done HERE
-            label: "Time:",
+        datasets: [{
+            label: "Time",
             data: times.map((item, index) => (
                 item
             )),
@@ -25,9 +24,8 @@ export default function Graph({Times, Years}) {
             borderWidth: 3,
             hoverBackgroundColor: "rgb(70, 105, 140)",
             hoverBorderColor: "rgb(70, 105, 140)",
-            
         }],
-    });
+    };
 
     const opts = {
         maintainAspectRation: false,
@@ -49,12 +47,14 @@ export default function Graph({Times, Years}) {
                     <div className="times">
                         {years.at(index)}
                         {console.log(years[0])}
+                        {console.log(times[0])}
                         <div>{times.at(index)}</div>
                     </div>
                 ))}
             </div>
-            
-            <LineChart chartData={userData} options={opts}/>
+            <div className="chart-spacing">
+                <LineChart chartData={userData} options={opts}/>
+            </div>
         </div>
     )
 }
