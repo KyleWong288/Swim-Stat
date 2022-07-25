@@ -1,4 +1,5 @@
-// TODO: Make Swim Events an array, and map thru an array
+// Years as integers -> use linear x axis
+// Years as strings -> use time axis
 export const Data = [
     {
         Swimmer: 'Person A',
@@ -10,7 +11,7 @@ export const Data = [
         Swimmer: 'Person B',
         SwimEvent: ["100 Breast", "200 IM"],
         Times: [ ["1:02.00", "1:00.00", "58.00"], ["2:05.00", "2:00.00", "1:56.00"] ],
-        Years: [ [2019, 2020, 2021], [2019, 2020, 2021] ],
+        Years: [ ["2019", "2020", "2021"], ["2019", "2020", "2021"] ],
     },
     {
         Swimmer: 'Person C',

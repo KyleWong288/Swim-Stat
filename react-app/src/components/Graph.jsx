@@ -1,24 +1,49 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Graph.css';
-import TestGraph from './TestGraphImg.png';
 import LineChart from './LineChart';
 
 // TODO: Make Y-axis time
 // TODO: Graph should take in props times and years.
 // Display the stats and pass times and years to LineChart
+
+// convert times to date for charting
+function timesToDates(timesArray) {
+	const datesArray = [];
+	for (let i=0; i<timesArray.length; i++) {
+		// formating based on string size
+		let curr = timesArray[i];
+		if (curr.length === 5) {
+			datesArray.push("2022-06-25 00:00:" + curr);
+		}
+	}
+    return datesArray;
+}
+
+function mergeData(timesArray, yearsArray) {
+    const data = [];
+    for (let i=0; i<timesArray.length; i++) {
+        data.push({x: yearsArray[i], y: timesArray[i]});
+    }
+    return data;
+}
+
 export default function Graph(props) {
-    const times = props.Times;
+    const times = timesToDates(props.Times);
     const years = props.Years;
+    const data = mergeData(times, years);
+
+    const testData = [
+        {x: '2018', y: '2021-06-25 00:00:22.00'},
+        {x: '2019', y: '2021-06-25 00:00:21.40'},
+        {x: '2020', y: '2021-06-25 00:00:21.00'},
+        {x: '2021', y: '2021-06-25 00:00:20.70'},
+    ]
+
 
     const userData = {
-        labels: years.map((item, index) => (
-            item
-        )),
         datasets: [{
             label: "Time",
-            data: times.map((item, index) => (
-                item
-            )),
+            data: data,
             backgroundColor: "rgb(170, 230, 255)",
             borderColor: "rgb(170, 230, 255)",
             borderWidth: 3,
@@ -28,14 +53,27 @@ export default function Graph(props) {
     };
 
     const opts = {
-        maintainAspectRation: false,
-        scales: {
-            y: {
-                grace: "10%"
+        events: [],
+        scales: { 
+            xAxes: {
+                type: 'linear',
+                ticks: {
+                    precision: 0,
+                },
+                
+            },
+            yAxes: {
+                type: 'time',
+                time: {
+                    displayFormats: {
+                        second: 'm:ss.SS',
+                    },
+                    unit: 'second',
+                },
             }
         }
     }
-
+    
     return (
         <div>
             <h1 className="times-header">
@@ -46,9 +84,7 @@ export default function Graph(props) {
                 {years.map((item,index) => (
                     <div className="times">
                         {years.at(index)}
-                        {console.log(years[0])}
-                        {console.log(times[0])}
-                        <div>{times.at(index)}</div>
+                        <div>{props.Times.at(index)}</div>
                     </div>
                 ))}
             </div>

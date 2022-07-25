@@ -8,7 +8,6 @@ export default function LineChart({ chartData, options }) {
     return (
         <div className="line-chart">
             <Line data={chartData} options={options} />
-            {console.log(chartData)}
         </div>
     )
 }
