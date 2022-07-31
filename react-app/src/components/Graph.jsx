@@ -44,8 +44,8 @@ export default function Graph(props) {
         datasets: [{
             label: "Time",
             data: data,
-            backgroundColor: "rgb(170, 230, 255)",
-            borderColor: "rgb(170, 230, 255)",
+            backgroundColor: "rgb(120, 160, 220)",
+            borderColor: "rgb(120, 160, 220)",
             borderWidth: 3,
             hoverBackgroundColor: "rgb(70, 105, 140)",
             hoverBorderColor: "rgb(70, 105, 140)",
@@ -88,7 +88,7 @@ export default function Graph(props) {
                     </div>
                 ))}
             </div>
-            <div className="chart-spacing">
+            <div className="chart-container">
                 <LineChart chartData={userData} options={opts}/>
             </div>
         </div>

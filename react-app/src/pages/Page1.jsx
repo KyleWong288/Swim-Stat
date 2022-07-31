@@ -1,5 +1,6 @@
 import LineChart from "../components/LineChart";
-import RegressionGraph from "../components/RegressionGraph";
+import GoogleChart from "../components/GoogleChart";
+import TestPlot from "../components/FunctionPlot";
 import 'chartjs-adapter-date-fns';
 import { useState } from "react";
 import {Data} from '../components/Data';
@@ -71,8 +72,9 @@ export default function Page1() {
     return (
         <div>
             <div className="line-graph">
-            <LineChart chartData={userData} options={opts}/>
-            <RegressionGraph />
+            {/* <LineChart chartData={userData} options={opts}/> */}
+            <GoogleChart/>
+            {/* <TestPlot/> */}
             </div>
         </div>
     )
