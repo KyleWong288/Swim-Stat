@@ -2,10 +2,6 @@ import React from 'react';
 import './Graph.css';
 import LineChart from './LineChart';
 
-// TODO: Make Y-axis time
-// TODO: Graph should take in props times and years.
-// Display the stats and pass times and years to LineChart
-
 // convert times to date for charting
 function timesToDates(timesArray) {
 	const datesArray = [];
@@ -38,7 +34,6 @@ export default function Graph(props) {
         {x: '2020', y: '2021-06-25 00:00:21.00'},
         {x: '2021', y: '2021-06-25 00:00:20.70'},
     ]
-
 
     const userData = {
         datasets: [{

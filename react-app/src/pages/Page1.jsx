@@ -1,14 +1,14 @@
 import LineChart from "../components/LineChart";
 import GoogleChart from "../components/GoogleChart";
-import TestPlot from "../components/FunctionPlot";
 import 'chartjs-adapter-date-fns';
 import { useState } from "react";
-import {Data} from '../components/Data';
 import "./Page1.css";
 
-const firstSwimmer = Data.at(0);
-const times = [80, 70, 60];
-const years = ['2015','2016','2017'];
+const years = [2018, 2019, 2020, 2021];
+const times = ["22.00", "21.40", "21.00", "20.70"]; // times should be string to store minutes 
+const name = "Your Mom";
+const event = "50 Free";
+
 
 const timeDataY = [
     {x: 2018, y: '2021-06-25 00:00:22.00'},
@@ -17,16 +17,10 @@ const timeDataY = [
     {x: 2021, y: '2021-06-25 00:00:20.70'},
 ]
 
-// Chart.js playground for now
-// TODO: work on chart hover effect, for now there are none (see events: [])
-// Remove comma in date if possible
+// Google Charts playground. Old Chart.js work also here.
 export default function Page1() {
     // we need labels and datasets for Chart.js
 
-    for (let i=0; i<timeDataY.length; i++) {
-        console.log(timeDataY[i].x);
-        console.log(timeDataY[i].y);
-    }
     const userData = {
         
         datasets: [{ 
@@ -73,7 +67,7 @@ export default function Page1() {
         <div>
             <div className="line-graph">
             {/* <LineChart chartData={userData} options={opts}/> */}
-            <GoogleChart/>
+            <GoogleChart years={years} times={times} name={name} event={event}/>
             {/* <TestPlot/> */}
             </div>
         </div>

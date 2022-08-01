@@ -4,6 +4,7 @@ import './Accordion.css';
 import { ReactComponent as CaretDown } from './caret-down.svg';
 import { ReactComponent as CaretUp } from './caret-up.svg';
 import Graph from "./Graph";
+import GoogleChart from './GoogleChart';
 
 // TODO: Change the "Stats" header to swimmer name and event when graphed
 // left side accordion menu and right side graph display
@@ -77,9 +78,9 @@ export default function Accordion() {
 				  <span className="caret">{selected === index ? <CaretUp/> : <CaretDown/>}</span>
 				</div>
 				<div className={selected === index ? 'content.show' : 'content'}>
-					{Data.at(index).SwimEvent.map((jtem, jndex) => (
+					{Data.at(index).SwimEvents.map((jtem, jndex) => (
 						<div className="swim-events">
-							{item.SwimEvent.at(jndex)}
+							{item.SwimEvents.at(jndex)}
 							<button onClick={() => [toggleClick(index,jndex), toggleDisplay(index,jndex)]} className="button">
 								Plot
 							</button> 
@@ -96,7 +97,7 @@ export default function Accordion() {
 	<div className="right-container">
 		<h1 className="header">Stats</h1>
 		<span>{displaySwimmer === selected && displayEvent === clicked ? 
-			<div className="graph-container"> <Graph Times={Data.at(selected).Times.at(clicked) } Years={Data.at(selected).Years.at(clicked)}/> </div> :
+			<div className="graph-container"> <GoogleChart years={Data.at(selected).Years.at(clicked)} times={Data.at(selected).Times.at(clicked)} name={Data.at(selected).Swimmer} event={Data.at(selected).SwimEvents.at(clicked)}/> </div> :
 			<div className="no-plot"> (nothing plotted yet) </div> }
 		</span>
 	</div>

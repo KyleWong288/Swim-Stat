@@ -1,7 +1,7 @@
 import React from 'react';
 import functionPlot from "function-plot";
 
-// CONSENSUS: Good for plotting actual function
+// PLAN: Good for plotting actual function
 // Issues with rendering and little documentation/resources, using Google Chart for now
 // Maybe come back to this if free time
 
