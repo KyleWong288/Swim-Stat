@@ -3,12 +3,16 @@ import GoogleChart from "../components/GoogleChart";
 import 'chartjs-adapter-date-fns';
 import { useState } from "react";
 import "./Page1.css";
+import linearRegression from '../utils/LinearRegression';
 
 const years = [2018, 2019, 2020, 2021];
 const times = ["22.00", "21.40", "21.00", "20.70"]; // times should be string to store minutes 
 const name = "Your Mom";
-const event = "50 Free";
+const event = "50 Free SCY";
 
+const regArray = linearRegression(years, times);
+const regYears = regArray[0];
+const regTimes = regArray[1];
 
 const timeDataY = [
     {x: 2018, y: '2021-06-25 00:00:22.00'},
@@ -67,7 +71,7 @@ export default function Page1() {
         <div>
             <div className="line-graph">
             {/* <LineChart chartData={userData} options={opts}/> */}
-            <GoogleChart years={years} times={times} name={name} event={event}/>
+            <GoogleChart years={regYears} times={regTimes} name={name} event={event}/>
             {/* <TestPlot/> */}
             </div>
         </div>

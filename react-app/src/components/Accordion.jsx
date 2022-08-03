@@ -8,26 +8,6 @@ import GoogleChart from './GoogleChart';
 
 // TODO: Change the "Stats" header to swimmer name and event when graphed
 // left side accordion menu and right side graph display
-class Button extends Component {
-	state = {
-		showTimes: false
-	}
-	
-	onButtonClickHandler = () => {
-		console.log(this.showTimes);
-		this.setState({showTimes: !this.showTimes});
-		
-	};
-	render() {
-		return (
-			<div>
-				{this.state.showTimes && <p>Hello</p>}
-				<button onClick={this.onButtonClickHandler}>ENTER</button>
-			</div>
-		)
-	}
-}
-
 export default function Accordion() {
   // Accordion Button Toggle:
   const [selected, setSelected] = useState(null)
@@ -97,7 +77,13 @@ export default function Accordion() {
 	<div className="right-container">
 		<h1 className="header">Stats</h1>
 		<span>{displaySwimmer === selected && displayEvent === clicked ? 
-			<div className="graph-container"> <GoogleChart years={Data.at(selected).Years.at(clicked)} times={Data.at(selected).Times.at(clicked)} name={Data.at(selected).Swimmer} event={Data.at(selected).SwimEvents.at(clicked)}/> </div> :
+			<div className="graph-container"> 
+				<GoogleChart 
+					years={Data.at(selected).Years.at(clicked)} 
+					times={Data.at(selected).Times.at(clicked)} 
+					name={Data.at(selected).Swimmer} 
+					event={Data.at(selected).SwimEvents.at(clicked)}/> 
+			</div> :
 			<div className="no-plot"> (nothing plotted yet) </div> }
 		</span>
 	</div>

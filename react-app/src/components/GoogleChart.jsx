@@ -1,9 +1,10 @@
 import React from 'react';
 import { Chart } from "react-google-charts";
 import './Graph.css';
+import linearRegression from '../utils/LinearRegression';
 
 // PLAN: Better than Chart.js, smooth lines appeal to my smooth brain
-// TODO: Maybe add min/max for time axis
+// TODO: Maybe add min/max for time axis. Make timesToDates more robust for edge cases
 
 const testData = [
     ["Year", "Time"],
@@ -42,7 +43,8 @@ function mergeData(years, times) {
 }
 
 export default function GoogleChart({years, times, name, event}) {
-    const timeData = mergeData(years, times);
+    const regArray = linearRegression(years, times);
+    const resData = mergeData(regArray[0], regArray[1]);
 
     const options = {
         title: name + ": " + event,
@@ -86,7 +88,7 @@ export default function GoogleChart({years, times, name, event}) {
             <div className="chart-container">
                 <Chart
                     chartType="LineChart"
-                    data={timeData}
+                    data={resData}
                     options={options}
                     width="100%"
                     height="300px"
