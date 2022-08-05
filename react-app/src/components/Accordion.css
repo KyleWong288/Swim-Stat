@@ -1,6 +1,6 @@
 .left-container {
     background-color: #333;
-    margin-left: 2rem;
+    margin-left: 3rem;
     margin-top: 2rem;
     width: 100vw;
     max-width: 640px;
@@ -13,9 +13,9 @@
 
 .right-container {
     background-color: #333;
-    margin-left: 2rem;
+    margin-left: 3rem;
     margin-top: 2rem;
-    max-width: 660px;
+    max-width: 750px;
     width: 100vw;
     display: inline-block;
     float: left;
@@ -169,3 +169,4 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
+

@@ -2,12 +2,15 @@ import Accordion from "../components/Accordion";
 import Graph from "../components/Graph";
 import "./Home.css";
 
-// TODO: Fix main scrollbar, Dynamic view size
+// TODO: Dynamic view size
+// Really scuffed bottom padding, maybe update it
 export default function Home() {
     return(
         <div className="overflow">
-            <div className="body">
+            <div className="bottom">
+                <div className="body">
                 <Accordion/> 
+                </div>
             </div>
         </div>
     )

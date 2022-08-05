@@ -14,19 +14,26 @@ const testData = [
     [2021, new Date("2022-06-09 0:00:55.00")],
 ]
 
-// regression utility goes here
-
 // convert times to date for charting
 function timesToDates(timesArray) {
 	const datesArray = [];
 	for (let i=0; i<timesArray.length; i++) {
-		// formating based on string size
+		// formating based on string size.
 		let curr = timesArray[i];
-		if (curr.length === 5) {
+        if (curr.length === 4) {
+            datesArray.push("2022-06-09 00:00:0" + curr);
+        }
+		else if (curr.length === 5) {
 			datesArray.push("2022-06-09 00:00:" + curr);
 		}
         else if (curr.length === 7) {
             datesArray.push("2022-06-09 00:0" + curr);
+        }
+        else if (curr.length === 8) {
+            datesArray.push("2022-06-09 00:" + curr);
+        }
+        else if (curr.length === 10) {
+            datesArray.push("2022-06-09 0" + curr);
         }
 	}
     return datesArray;
@@ -42,9 +49,24 @@ function mergeData(years, times) {
     return timesData;
 }
 
+function getLast3(regArray) {
+    const res = [];
+    const last3Years = [];
+    const last3Times = [];
+    const size = regArray[0].length;
+    for (let i=0; i<3; i++) {
+        last3Years.push(regArray[0][size - 3 + i]);
+        last3Times.push(regArray[1][size - 3 + i]);
+    }
+    res.push(last3Years);
+    res.push(last3Times);
+    return res;
+}
+
 export default function GoogleChart({years, times, name, event}) {
     const regArray = linearRegression(years, times);
     const resData = mergeData(regArray[0], regArray[1]);
+    const last3 = getLast3(regArray);
 
     const options = {
         title: name + ": " + event,
@@ -62,7 +84,11 @@ export default function GoogleChart({years, times, name, event}) {
                 count: 4
             }
         },
-        
+        chartArea: {
+            height: "75%",
+            width: "75%",
+            bottom: "8%",
+        },
         animation: {
             startup: false, // prevents duration lag when first rendering
             easing: "inAndOut",
@@ -73,17 +99,35 @@ export default function GoogleChart({years, times, name, event}) {
 
     return (
         <div>
-            <h1 className="times-header">
-                Year:
-                <div> Time: </div>
-            </h1>
-            <div>
-                {years.map((item,index) => (
-                    <div className="times">
-                        {years.at(index)}
-                        <div>{times.at(index)}</div>
+            <div className="times-separate">
+                <div>
+                    <h1 className="times-header">
+                        Year:
+                        <div> Time: </div>
+                    </h1>
+                    <div>
+                        {years.map((item,index) => (
+                            <div className="times">
+                                {years.at(index)}
+                                <div>{times.at(index)}</div>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
+                <div>
+                    <h1 className="times-header">
+                        Year:
+                        <div> Predicted Time: </div>
+                    </h1>
+                    <div>
+                        {last3[0].map((item,index) => (
+                            <div className="times">
+                                {last3[0].at(index)}
+                                <div>{last3[1].at(index)}</div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
             <div className="chart-container">
                 <Chart
