@@ -21,7 +21,7 @@ const timeDataY = [
     {x: 2021, y: '2021-06-25 00:00:20.70'},
 ]
 
-// Google Charts playground. Old Chart.js work also here.
+// Chart playground. Old Chart.js work also here.
 export default function Page1() {
     // we need labels and datasets for Chart.js
 
@@ -70,9 +70,11 @@ export default function Page1() {
     return (
         <div>
             <div className="line-graph">
-            {/* <LineChart chartData={userData} options={opts}/> */}
+            {/*
+            <LineChart chartData={userData} options={opts}/>
             <GoogleChart years={regYears} times={regTimes} name={name} event={event}/>
-            {/* <TestPlot/> */}
+            <TestPlot/> 
+            */}
             </div>
         </div>
     )
