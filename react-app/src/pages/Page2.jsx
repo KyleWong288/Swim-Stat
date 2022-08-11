@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import CustomEntry from '../components/CustomEntry';
 import Axios from 'axios';
+import "./Page2.css";
 
 export default function Page2() {
     const [swimmer, setSwimmer] = useState("");
@@ -20,8 +22,8 @@ export default function Page2() {
     };
 
     return (
-        <div>
-            <h1> MongoDB test </h1>
+        <div className="body-page2">
+            <CustomEntry/>
             <label>Name</label>
             <input type="text" style={{border: 'solid'}}
                 onChange={(event) => {setSwimmer(event.target.value)}} />

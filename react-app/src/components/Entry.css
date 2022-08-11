@@ -1,0 +1,13 @@
+.entry {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 496px;
+    background: rgb(30,30,30);
+    color: white;
+    margin: 0 auto;
+    border-radius: 3px;
+    font-size: 18px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
