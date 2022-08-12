@@ -1,5 +1,4 @@
 import Accordion from "../components/Accordion";
-import Graph from "../components/Graph";
 import "./Home.css";
 
 // TODO: Dynamic view size, FIX scrollbar

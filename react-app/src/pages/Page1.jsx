@@ -1,5 +1,4 @@
-import LineChart from "../components/LineChart";
-import GoogleChart from "../components/GoogleChart";
+import GoogleChart from "../components/charts/GoogleChart";
 import 'chartjs-adapter-date-fns';
 import { useState } from "react";
 import "./Page1.css";

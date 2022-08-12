@@ -10,7 +10,7 @@ export function timesToNum(times) {
         const word = times[i];
         let curr = 0.0;
         const colon = word.search(":");
-        if (colon == -1) {
+        if (colon === -1) {
             curr += parseFloat(word);
         }
         else {

@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import { Data } from './Data';
+import { Data } from './charts/Data';
 import './Accordion.css';
 import { ReactComponent as CaretDown } from './caret-down.svg';
 import { ReactComponent as CaretUp } from './caret-up.svg';
-import Graph from "./Graph";
-import GoogleChart from './GoogleChart';
+import GoogleChart from './charts/GoogleChart';
 
 // TODO: Change the "Stats" header to swimmer name and event when graphed
 // left side accordion menu and right side graph display
