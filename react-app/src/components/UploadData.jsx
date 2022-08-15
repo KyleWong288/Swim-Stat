@@ -1,116 +1,62 @@
 import React, {useState} from 'react';
-import Entry from './Entry';
-import './UploadData.css';
+import './UploadDisplay.css';
 
-// TODO: Styling for selectable dropdowns
+export default function UploadData(props) {
+    const [name, setName] = useState("");
+    const [swimEvent, setSwimEvent] = useState("");
+    const [stroke, setStroke] = useState("");
 
-function isValidTime(minutes, seconds, hundreths) {
-    if (isNaN(minutes) || isNaN(seconds) || isNaN(hundreths)) {
-        return false;
-    }
-    return true;
-}
-
-// Input: integers, Output: formatted string
-function makeTime(minutes, seconds, hundreths) {
-    let res = "";
-    if (minutes !== 0) {
-        res += minutes.toString() + ":";
-    }
-    if (seconds < 10 && minutes > 0) {
-        res += "0";
-    }
-    res += seconds.toString() + ".";
-    if (hundreths < 10) {
-        res += "0";
-    }
-    res += hundreths.toString();
-    return res;
-}
-
-function AddData(props) {
-    const [year, setYear] = useState();
-    const [minutes, setMinutes] = useState();
-    const [seconds, setSeconds] = useState();
-    const [hundreths, setHundreths] = useState();
-
-    // TODO: for the love of god make this a separate utility function
-    function handleSubmit(e) {
+    function handleUpload(e) {
         e.preventDefault();
-        let m = parseInt(minutes);
-        if (minutes === "") {
-            m = 0;
-        }
-        let s = parseInt(seconds);
-        if (seconds === "") {
-            s = 0;
-        }
-        let h = parseInt(hundreths);
-        if (hundreths === "") {
-            h = 0;
-        }
-        if (!isValidTime(m, s, h)) {
-            alert("Error: invalid entry");
+        const data = props.entryData;
+        if (data.length < 2) {
+            alert("Error: Input at least 2 entries");
             return;
         }
-        else if (m < 0 || m > 59) {
-            alert("Error: minutes must be between 0 and 59");
+        else if (name.length < 1) {
+            alert("Error: Enter a name");
             return;
         }
-        else if (s < 0 || s > 59) {
-            alert("Error: seconds must be between 0 and 59");
+        else if (swimEvent === "Distance" || swimEvent === "") {
+            alert("Error: Select a distance");
             return;
         }
-        else if (h < 0 || h > 99) {
-            alert("Error: hundreths must be between 0 and 99");
+        else if (stroke === "Stroke" || swimEvent === "") {
+            alert("Error: Select a stroke");
             return;
         }
-        const time = makeTime(m,s,h);
-        props.setEntryData(prev => prev.concat({year: parseInt(year), time: time}));
-        setYear("Year");
-        setMinutes("");
-        setSeconds("");
-        setHundreths("");
+        // TODO: axios post req
+        console.log(name);
+        console.log(swimEvent);
+        
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleUpload}>
             <div className="entry-input">
-                <select value={year} onChange={e => setYear(e.target.value)} className="year-dropdown">
-                    <option>Year</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
+                <input value={name} onChange={e => setName(e.target.value)} className="textbox-name" type="text" placeholder="name:"></input>
+                <select value={swimEvent} onChange={e => setSwimEvent(e.target.value)} className="year-dropdown">
+                    <option>Distance</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="200">200</option>
+                    <option value="400">400</option>
+                    <option value="500">500</option>
+                    <option value="800">800</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
+                    <option value="1650">1650</option>
                 </select>
-                <input value={minutes} onChange={e => setMinutes(e.target.value)} className="textbox-small" type="text" placeholder="minutes:"/>
-                <input value={seconds} onChange={e => setSeconds(e.target.value)} className="textbox-small" type="text" placeholder="seconds:"/>
-                <input value={hundreths} onChange={e => setHundreths(e.target.value)} className="textbox-small" type="text" placeholder="hundreths:"/>
-                <button className="entry-button">Add</button>
-            </div>
-        </form>
-    )
-}
-
-export default function UploadData() {
-    const data = [{year: "Year:", time: "Time:"}];
-    const [entryData, setEntryData] = useState(data);
-    // for (let i=0; i<entryData.length; i++) {
-    //     console.log(entryData[i]);
-    // }
-
-    return (
-        <div className="upload-body">
-            <div className="entry-input">
-                <input className="textbox-name" type="text" placeholder="name:"></input>
-                <input className="textbox-name" type="text" placeholder="event:"></input>
+                <select value={stroke} onChange={e => setStroke(e.target.value)} className="year-dropdown">
+                    <option>Stroke</option>
+                    <option value="Free">Free</option>
+                    <option value="Back">Back</option>
+                    <option value="Breast">Breast</option>
+                    <option value="Fly">Fly</option>
+                    <option value="IM">IM</option>
+                </select>
                 <button className="entry-button"> Upload </button>
             </div>
-            <AddData setEntryData={setEntryData}/>
-            <div>
-                {entryData.map((item,index) => (
-                    <Entry year={item.year} time={item.time}/>
-                ))}
-            </div>
-        </div>
+        </form>
     )
 }

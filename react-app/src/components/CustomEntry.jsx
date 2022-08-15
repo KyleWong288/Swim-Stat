@@ -1,5 +1,5 @@
 import React from 'react';
-import UploadData from './UploadData';
+import UploadDisplay from './UploadDisplay';
 import './CustomEntry.css';
 import './Accordion.css';
 
@@ -10,7 +10,7 @@ export default function CustomEntry() {
     return (
         <div className="left-container">
             <h1 className="header"> Custom Entry </h1>
-            <UploadData/>
+            <UploadDisplay/>
         </div>
     )
 }
