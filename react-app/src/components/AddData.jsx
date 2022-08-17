@@ -36,15 +36,15 @@ export default function AddData(props) {
     function handleAdd(e) {
         e.preventDefault();
         let m = parseInt(minutes);
-        if (minutes === "") {
+        if (minutes === "" || minutes == undefined) {
             m = 0;
         }
         let s = parseInt(seconds);
-        if (seconds === "") {
+        if (seconds === "" || seconds == undefined) {
             s = 0;
         }
         let h = parseInt(hundreths);
-        if (hundreths === "") {
+        if (hundreths === "" || hundreths == undefined) {
             h = 0;
         }
         if (!isValidTime(m, s, h)) {
@@ -68,7 +68,8 @@ export default function AddData(props) {
             return;
         }
         const time = makeTime(m,s,h);
-        props.setEntryData(prev => prev.concat({year: parseInt(year), time: time}));
+        // append data and re-sort
+        props.setEntryData(prev => prev.concat({year: parseInt(year), time: time}).sort((a, b) => a.year > b.year ? 1 : -1));
         setYear("Year");
         setMinutes("");
         setSeconds("");

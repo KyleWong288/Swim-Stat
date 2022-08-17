@@ -12,8 +12,8 @@ function App() {
       <div className="containter">
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/page1" element={<Page1/>} />
-          <Route path="/page2" element={<Page2/>} />
+          <Route path="/popular" element={<Page1/>} />
+          <Route path="/custom" element={<Page2/>} />
         </Routes>
       </div>
     </div>

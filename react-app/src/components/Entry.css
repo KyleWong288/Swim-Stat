@@ -8,6 +8,28 @@
     margin: 0 auto;
     border-radius: 3px;
     font-size: 18px;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.3rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.remove-button {
+    background-color: white;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-out 0.2s;
+}
+
+.remove-button:hover {
+    cursor: pointer;
+    background-color: rgb(230, 135, 135);
+    transition: ease-in 0.2s;
+}
+
+.entry-time-title {
+    margin: 0 auto;
+    padding-right: 26px;
 }

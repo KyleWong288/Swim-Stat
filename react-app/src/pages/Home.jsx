@@ -5,7 +5,7 @@ import "./Home.css";
 // Really scuffed bottom padding, maybe update it
 export default function Home() {
     return(
-        <div className="overflow">
+        <div>
             <div className="bottom">
                 <div className="body">
                 <Accordion/> 
