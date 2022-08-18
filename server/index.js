@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
 
-const SwimModel = require("./models/Swim");
+const SwimModel = require("./models/swim-schema");
 
 app.use(express.json());
 app.use(cors());
@@ -18,7 +18,9 @@ mongoose.connect(
 app.post("/insert", async (req, res) => {
     const swimmer = req.body.swimmer;
     const swimEvent = req.body.swimEvent;
-    const swim = new SwimModel({ swimmer: swimmer, swimEvents: swimEvent });
+    const swimYears = req.body.swimYears;
+    const swimTimes = req.body.swimTimes;
+    const swim = new SwimModel({ swimmer: swimmer, swimEvent: swimEvent, swimYears: swimYears, swimTimes: swimTimes });
     try {
         await swim.save();
         res.send("inserted data");

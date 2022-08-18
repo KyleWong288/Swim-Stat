@@ -5,8 +5,16 @@ const SwimSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    swimEvents: { 
+    swimEvent: { 
         type: String,
+        required: true,
+    },
+    swimYears: {
+        type: [Number],
+        required: true,
+    },
+    swimTimes: {
+        type: [String],
         required: true,
     },
 });
