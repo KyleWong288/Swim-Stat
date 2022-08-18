@@ -177,8 +177,6 @@ export default function linearRegression(yearsData, timesData) {
     const matrix = createMatrixLog(years, times);
     const coefficients = solveMatrix(matrix);
     const res = createResData(yearsData, times, coefficients);
-    console.log("Returning regression data:");
-    console.log(res);
     return res;
 }
 

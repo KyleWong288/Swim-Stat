@@ -31,7 +31,6 @@ export default function AddData(props) {
     const [seconds, setSeconds] = useState();
     const [hundreths, setHundreths] = useState();
     
-
     // TODO: maybe make utility function for this
     function handleAdd(e) {
         e.preventDefault();
@@ -72,7 +71,7 @@ export default function AddData(props) {
         props.setEntryData(prev => prev.concat({year: parseInt(year), time: time}).sort((a, b) => a.year > b.year ? 1 : -1));
         setYear("Year");
         setMinutes("");
-        setSeconds("");
+        setSeconds(""); 
         setHundreths("");
     }
 
