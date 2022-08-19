@@ -1,6 +1,7 @@
 import React from 'react';
 import './Graph.css';
 import LineChart from './LineChart';
+import 'chartjs-adapter-date-fns';
 
 // convert times to date for charting
 function timesToDates(timesArray) {

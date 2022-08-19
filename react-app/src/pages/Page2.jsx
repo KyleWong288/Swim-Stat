@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import CustomEntry from '../components/CustomEntry';
 import Axios from 'axios';
 import "./Page2.css";
+// TODO: Add framer motion once this page is finished
 
+// Custom Entry
 export default function Page2() {
     const [swimmer, setSwimmer] = useState("");
     const [swimEvent, setSwimEvent] = useState("");
@@ -41,8 +43,8 @@ export default function Page2() {
 
     return (
         <div className="body-page2">
-            {/* <CustomEntry/> */}
-            <label>Name</label>
+            <CustomEntry/>
+            {/* <label>Name</label>
             <input type="text" style={{border: 'solid'}}
                 onChange={(event) => {setSwimmer(event.target.value)}} />
             <label>Event</label>
@@ -66,7 +68,7 @@ export default function Page2() {
                     
                 </div>
                 )
-            })}
+            })} */}
         </div>
     )
 }

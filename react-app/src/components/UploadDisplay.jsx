@@ -7,13 +7,14 @@ import './UploadDisplay.css';
 // TODO: Styling for selectable dropdowns
 
 export default function UploadDisplay() {
-    const data = [];
-    const [entryData, setEntryData] = useState(data);
+    const [name, setName] = useState([]); 
+    const [swimEvent, setSwimEvent] = useState([]);
+    const [entryData, setEntryData] = useState([]); // stores an array of objects containing {year, time}
 
     return (
         <div className="upload-body">
-            <UploadData entryData={entryData}/>
-            <AddData entryData={entryData} setEntryData={setEntryData}/>
+            <UploadData entryData={entryData} setName={setName} setSwimEvent={setSwimEvent}/>
+            <AddData setEntryData={setEntryData}/>
             <div>
                 <div className="entry">
                     <h1>Year:</h1>

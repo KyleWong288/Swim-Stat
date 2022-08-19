@@ -79,10 +79,15 @@ export default function AddData(props) {
         <form onSubmit={handleAdd}>
             <div className="entry-input">
                 <select value={year} onChange={e => setYear(e.target.value)} className="year-dropdown">
-                    <option>Year</option>
-                    <option value="2018">2018</option>
-                    <option value="2019">2019</option>
-                    <option value="2020">2020</option>
+                    <option className="option-small">Year</option>
+                    <option className="option-small" value="2015">2015</option>
+                    <option className="option-small" value="2016">2016</option>
+                    <option className="option-small" value="2017">2017</option>
+                    <option className="option-small" value="2018">2018</option>
+                    <option className="option-small" value="2019">2019</option>
+                    <option className="option-small" value="2020">2020</option>
+                    <option className="option-small" value="2021">2021</option>
+                    <option className="option-small" value="2022">2022</option>
                 </select>
                 <input value={minutes} onChange={e => setMinutes(e.target.value)} className="textbox-small" type="text" placeholder="minutes:"/>
                 <input value={seconds} onChange={e => setSeconds(e.target.value)} className="textbox-small" type="text" placeholder="seconds:"/>

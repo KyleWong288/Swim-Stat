@@ -79,4 +79,8 @@ input::placeholder {
     color: rgb(160,160,160);
 }
 
+.option-small {
+    font-size: 16px;
+}
+
 

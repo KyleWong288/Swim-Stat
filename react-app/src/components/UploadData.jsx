@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Axios from 'axios';
 import './UploadDisplay.css';
 
 export default function UploadData(props) {
@@ -6,10 +7,26 @@ export default function UploadData(props) {
     const [swimEvent, setSwimEvent] = useState("");
     const [stroke, setStroke] = useState("");
 
+    function splitYears(data) {
+        const res = [];
+        for (let i=0; i<data.length; i++) {
+            res.push(data[i].year);
+        }
+        return res;
+    }
+
+    function splitTimes(data) {
+        const res = [];
+        for (let i=0; i<data.length; i++) {
+            res.push(data[i].time);
+        }
+        return res;
+    }
+
     function handleUpload(e) {
         e.preventDefault();
         const data = props.entryData;
-        if (data.length < 2) {
+        if (data.length < 2) { // UPDATE TO AT LEAST 4 ENTRIES
             alert("Error: Input at least 2 entries");
             return;
         }
@@ -25,9 +42,18 @@ export default function UploadData(props) {
             alert("Error: Select a stroke");
             return;
         }
-        // TODO: axios post req
-        console.log(name);
-        console.log(swimEvent);
+        props.setName(name);
+        props.setSwimEvent(swimEvent + " " + stroke);
+        const localYears = splitYears(props.entryData);
+        const localTimes = splitTimes(props.entryData);
+        // Axios POST request:
+        Axios.post("http://localhost:3001/insert", {
+            swimmer: name,
+            swimEvent: swimEvent + " " + stroke,
+            swimYears: localYears,
+            swimTimes: localTimes,
+        });
+
         
     }
 
@@ -36,24 +62,24 @@ export default function UploadData(props) {
             <div className="entry-input">
                 <input value={name} onChange={e => setName(e.target.value)} className="textbox-name" type="text" placeholder="name:"></input>
                 <select value={swimEvent} onChange={e => setSwimEvent(e.target.value)} className="year-dropdown">
-                    <option>Distance</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value="200">200</option>
-                    <option value="400">400</option>
-                    <option value="500">500</option>
-                    <option value="800">800</option>
-                    <option value="1000">1000</option>
-                    <option value="1500">1500</option>
-                    <option value="1650">1650</option>
+                    <option className="option-small" >Distance</option>
+                    <option className="option-small" value="50">50</option>
+                    <option className="option-small" value="100">100</option>
+                    <option className="option-small" value="200">200</option>
+                    <option className="option-small" value="400">400</option>
+                    <option className="option-small" value="500">500</option>
+                    <option className="option-small" value="800">800</option>
+                    <option className="option-small" value="1000">1000</option>
+                    <option className="option-small" value="1500">1500</option>
+                    <option className="option-small" value="1650">1650</option>
                 </select>
                 <select value={stroke} onChange={e => setStroke(e.target.value)} className="year-dropdown">
-                    <option>Stroke</option>
-                    <option value="Free">Free</option>
-                    <option value="Back">Back</option>
-                    <option value="Breast">Breast</option>
-                    <option value="Fly">Fly</option>
-                    <option value="IM">IM</option>
+                    <option className="option-small" >Stroke</option>
+                    <option className="option-small" value="Free">Free</option>
+                    <option className="option-small" value="Back">Back</option>
+                    <option className="option-small" value="Breast">Breast</option>
+                    <option className="option-small" value="Fly">Fly</option>
+                    <option className="option-small" value="IM">IM</option>
                 </select>
                 <button className="entry-button"> Upload </button>
             </div>

@@ -1,0 +1,10 @@
+.overflow {
+    overflow: auto;
+    height: 92.4vh;
+}
+
+.body {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+}

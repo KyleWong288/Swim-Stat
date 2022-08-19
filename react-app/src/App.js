@@ -1,20 +1,14 @@
 import './App.css';
 import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import Page1 from './pages/Page1';
-import Page2 from './pages/Page2';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import AnimatedRoutes from './pages/AnimatedRoutes';
 
 function App() {
   return (
     <div>
       <Navbar/>
-      <div className="containter">
-        <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route path="/popular" element={<Page1/>} />
-          <Route path="/custom" element={<Page2/>} />
-        </Routes>
+      <div>
+        <AnimatedRoutes />
       </div>
     </div>
   );
