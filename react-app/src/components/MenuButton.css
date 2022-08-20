@@ -1,0 +1,15 @@
+.menu-button {
+    transition: ease 0.3s;
+    padding-bottom: 2px;
+}
+
+.menu-button:hover {
+    color: black;
+    background-color: rgb(170, 230, 255);
+    border-radius: 4px;
+    padding: 0rem 0.4rem;
+    display: flex;
+    align-items: center;
+    height: 32px;
+    padding-bottom: 2px;
+}

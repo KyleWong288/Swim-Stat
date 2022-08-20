@@ -2,6 +2,7 @@ import React from 'react';
 import { Chart } from "react-google-charts";
 import './Graph.css';
 import linearRegression from '../../utils/LinearRegression';
+import { motion } from "framer-motion";
 
 // PLAN: Better than Chart.js, smooth lines appeal to my smooth brain
 // TODO: Maybe add min/max for time axis. Make timesToDates more robust for edge cases

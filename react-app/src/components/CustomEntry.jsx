@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UploadDisplay from './UploadDisplay';
+import MenuButton from './MenuButton';
 import './CustomEntry.css';
 import './Accordion.css';
 
 // Upload Data: create or updates data
-// View Recent: Reads past 10 database entries
-// Search: Searches database entries
+// View All: Reads past database entries
 export default function CustomEntry() {
+    const [upload, showUpload] = useState(true); // true shows upload, false shows view all
+
+    function toggleUpload() {
+        showUpload(!upload);
+    }
+
     return (
         <div className="left-container">
-            <h1 className="header"> Custom Entry </h1>
-            <UploadDisplay/>
+            {upload ? 
+                <div className="separate-header">
+                    <h1 className="highlight"> Custom Entry</h1> 
+                    <div className="menu-up"> <MenuButton toggleUpload={toggleUpload} text={"Past Entries"}/> </div>
+                </div> :
+                <div className="separate-header">
+                    <div className="menu-up"><MenuButton toggleUpload={toggleUpload} text={"Custom Entry"}/> </div>
+                    <h1 className="highlight"> Past Entries </h1>
+                </div>
+            }  
+            {upload ? <UploadDisplay/> : null}
         </div>
     )
 }

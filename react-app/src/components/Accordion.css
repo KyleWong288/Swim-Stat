@@ -58,20 +58,6 @@
     cursor: pointer;
 }
 
-.content {
-    max-height: 0;
-    overflow-y: hidden;
-    -webkit-transition:height 2s ease;
-    transition:height 2s ease;
-}
-
-.content.show {
-    -webkit-transition:height 2s ease;
-    transition:height 2s ease;
-    height: auto;
-    max-height: 1000px;
-}
-
 .swim-events {
     box-sizing: border-box;
     padding-left: 1rem;

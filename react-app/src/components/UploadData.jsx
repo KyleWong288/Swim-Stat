@@ -53,7 +53,6 @@ export default function UploadData(props) {
             swimYears: localYears,
             swimTimes: localTimes,
         });
-
         
     }
 

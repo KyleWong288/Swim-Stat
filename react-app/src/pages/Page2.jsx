@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CustomEntry from '../components/CustomEntry';
+import GoogleChart from '../components/charts/GoogleChart';
 import Axios from 'axios';
 import "./Page2.css";
 // TODO: Add framer motion once this page is finished
@@ -42,7 +43,7 @@ export default function Page2() {
     };
 
     return (
-        <div className="body-page2">
+        <div>
             <CustomEntry/>
             {/* <label>Name</label>
             <input type="text" style={{border: 'solid'}}

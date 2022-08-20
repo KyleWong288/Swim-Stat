@@ -4,6 +4,7 @@ import './Accordion.css';
 import { ReactComponent as CaretDown } from './caret-down.svg';
 import { ReactComponent as CaretUp } from './caret-up.svg';
 import GoogleChart from './charts/GoogleChart';
+import { motion } from "framer-motion";
 
 // TODO: Change the "Stats" header to swimmer name and event when graphed
 // left side accordion menu and right side graph display
@@ -56,16 +57,25 @@ export default function Accordion() {
 				  <h1>{item.Swimmer}</h1>
 				  <span className="caret">{selected === index ? <CaretUp/> : <CaretDown/>}</span>
 				</div>
-				<div className={selected === index ? 'content.show' : 'content'}>
-					{Data.at(index).SwimEvents.map((jtem, jndex) => (
-						<div className="swim-events">
-							{item.SwimEvents.at(jndex)}
-							<button onClick={() => [toggleClick(index,jndex), toggleDisplay(index,jndex)]} className="button">
-								Plot
-							</button> 
+				<div>
+					{selected === index ?
+						<motion.div
+							initial={{width: "50%", opacity: 0}}
+							animate={{width: "100%", opacity: 1, transition: {duration: 0.9}}}
+							exit={{x: window.innerWidth, opacity: 0}}>
+							{Data.at(index).SwimEvents.map((jtem, jndex) => (
+								<div className="swim-events">
+									{item.SwimEvents.at(jndex)}
+									<button onClick={() => [toggleClick(index,jndex), toggleDisplay(index,jndex)]} className="button">
+										Plot
+									</button> 
+								</div>
+							))}
+						</motion.div> :
+						<div>
+							{null}
 						</div>
-					))} 
-					
+					}
 				</div>
 			 </div>
 		  ))}
@@ -76,14 +86,20 @@ export default function Accordion() {
 	<div className="right-container">
 		<h1 className="header">Stats</h1>
 		<span>{displaySwimmer === selected && displayEvent === clicked ? 
-			<div className="graph-container"> 
-				<GoogleChart 
-					years={Data.at(selected).Years.at(clicked)} 
-					times={Data.at(selected).Times.at(clicked)} 
-					name={Data.at(selected).Swimmer} 
-					event={Data.at(selected).SwimEvents.at(clicked)}/> 
-			</div> :
-			<div className="no-plot"> (nothing plotted yet) </div> }
+			<motion.div
+				initial={{opacity: 0}}
+				animate={{opacity: 1, transition: {duration: 1.2}}}
+				exit={{opacity: 0}}>
+				<div className="graph-container"> 
+					<GoogleChart 
+						years={Data.at(selected).Years.at(clicked)} 
+						times={Data.at(selected).Times.at(clicked)} 
+						name={Data.at(selected).Swimmer} 
+						event={Data.at(selected).SwimEvents.at(clicked)}/> 
+				</div>
+			</motion.div> :
+			<div className="no-plot"> (nothing plotted) </div> 
+			}
 		</span>
 	</div>
   </div>
