@@ -69,10 +69,13 @@ export default function AddData(props) {
         const time = makeTime(m,s,h);
         // append data and re-sort
         props.setEntryData(prev => prev.concat({year: parseInt(year), time: time}).sort((a, b) => a.year > b.year ? 1 : -1));
+        props.setGraphYears(prev => prev.concat(year));
+        props.setGraphTimes(prev => prev.concat(time));
         setYear("Year");
         setMinutes("");
         setSeconds(""); 
         setHundreths("");
+        props.setShowGraph(false);
     }
 
     return (

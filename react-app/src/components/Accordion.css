@@ -71,7 +71,6 @@
     margin-bottom: -1px;
     margin-left: 3px;
     margin-right: 3px;
-    
 }
 
 .caret {
@@ -80,7 +79,6 @@
     padding-left: 1px;
     padding-bottom: 1px;
     transition: ease 0.3s;
-    
 }
 
 .caret:hover {
@@ -154,5 +152,9 @@
     align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+.acc {
+    overflow: hidden;
 }
 

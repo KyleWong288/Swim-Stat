@@ -10,28 +10,28 @@ import { motion } from "framer-motion";
 // left side accordion menu and right side graph display
 export default function Accordion() {
   // Accordion Button Toggle:
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(null);
 
   const toggle = (index) => {
 	 if (selected === index) {
-		return setSelected(null)
+		return setSelected(null);
 	 }
-	 setSelected(index)
+	 setSelected(index);
   }
 
   // Graph Button Toggle:
-  const [clicked = -1, setClicked] = useState(true)
+  const [clicked = -1, setClicked] = useState(true);
 
   const toggleClick = (index, jndex) => {
 	// if (clicked === jndex) {
 	// 	return setClicked(null)
 	// }
-	setClicked(jndex)
+	setClicked(jndex);
   }
 
   // Interface between accordion and graph:
-  const [displaySwimmer, setDisplaySwimmer] = useState(null)
-  const [displayEvent, setDisplayEvent] = useState(null)
+  const [displaySwimmer, setDisplaySwimmer] = useState(null);
+  const [displayEvent, setDisplayEvent] = useState(null);
 
   const toggleDisplay = (index, jndex) => {
 	// if (displaySwimmer === index && displayEvent === jndex) {
@@ -39,13 +39,13 @@ export default function Accordion() {
 	// 	setDisplayEvent(null)
 	// 	return
 	// }
-	setDisplaySwimmer(index)
-	setDisplayEvent(jndex)
+	setDisplaySwimmer(index);
+	setDisplayEvent(jndex);
   }
 
   // TODO: Add transition animation
   return (
-  <div>
+  <div className="acc">
 	<div className="left-container">
 	<h1 className="header"> Most Popular </h1>
 	<div className="scrollable">

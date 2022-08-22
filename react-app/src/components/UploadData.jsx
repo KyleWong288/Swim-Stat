@@ -23,9 +23,20 @@ export default function UploadData(props) {
         return res;
     }
 
+    function isDuplicateYears(years) { // pre-sorted array
+        for (let i=1; i<years.length; i++) {
+            if (years[i] === years[i-1]) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     function handleUpload(e) {
         e.preventDefault();
         const data = props.entryData;
+        const localYears = splitYears(props.entryData);
+        const localTimes = splitTimes(props.entryData);
         if (data.length < 2) { // UPDATE TO AT LEAST 4 ENTRIES
             alert("Error: Input at least 2 entries");
             return;
@@ -42,10 +53,17 @@ export default function UploadData(props) {
             alert("Error: Select a stroke");
             return;
         }
+        else if (isDuplicateYears(localYears)) { 
+            alert("Error: Enter only one time per year");
+            return;
+        }
         props.setName(name);
         props.setSwimEvent(swimEvent + " " + stroke);
-        const localYears = splitYears(props.entryData);
-        const localTimes = splitTimes(props.entryData);
+        // Setting data for Google Chart
+        props.setGraphName(name);
+        props.setGraphEvent(swimEvent + " " + stroke);
+        props.setGraphYears(localYears);
+        props.setGraphTimes(localTimes);
         // Axios POST request:
         Axios.post("http://localhost:3001/insert", {
             swimmer: name,
@@ -53,7 +71,11 @@ export default function UploadData(props) {
             swimYears: localYears,
             swimTimes: localTimes,
         });
-        
+        setName("");
+        setSwimEvent("Distance");
+        setStroke("Stroke");
+        props.setEntryData([]);
+        props.setShowGraph(true);
     }
 
     return (

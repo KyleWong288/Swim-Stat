@@ -1,0 +1,18 @@
+.past-events {
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-right: 1rem;
+    font-size: 1.2rem;
+    border-radius: 3px;
+    background-color: rgb(70, 105, 140);
+    border: solid rgb(30,30,30);
+    margin-bottom: -1px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.time-right {
+    float: right;
+}
