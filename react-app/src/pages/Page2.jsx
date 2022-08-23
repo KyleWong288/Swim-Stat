@@ -43,7 +43,7 @@ export default function Page2() {
     };
 
     return (
-        <div>
+        <div className="body-page2">
             <CustomEntry/>
             {/* <label>Name</label>
             <input type="text" style={{border: 'solid'}}

@@ -4,11 +4,17 @@ import { ReactComponent as CaretUp } from './caret-up.svg';
 import Axios from 'axios';
 import './PastEntries.css';
 
-export default function PastEntries() {
+export default function PastEntries(props) {
+    // for accordion data
     const [data, setData] = useState([]);
     const [selected, setSelected] = useState(null);
 
     function toggleClick(index) {
+        props.setGraphName(data[index].swimmer);
+        props.setGraphEvent(data[index].swimEvent);
+        props.setGraphYears(data[index].swimYears);
+        props.setGraphTimes(data[index].swimTimes);
+        props.setShowGraph(true);
         if (selected === index) {
             setSelected(null);
         }

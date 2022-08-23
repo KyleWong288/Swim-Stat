@@ -17,10 +17,11 @@ export default function Accordion() {
 		return setSelected(null);
 	 }
 	 setSelected(index);
+	 setClicked(-1);
   }
 
   // Graph Button Toggle:
-  const [clicked = -1, setClicked] = useState(true);
+  const [clicked = -1, setClicked] = useState(-1);
 
   const toggleClick = (index, jndex) => {
 	// if (clicked === jndex) {
@@ -41,6 +42,19 @@ export default function Accordion() {
 	// }
 	setDisplaySwimmer(index);
 	setDisplayEvent(jndex);
+  }
+
+  function displayAccHeader() {
+	let res = "Stats";
+	if (selected !== null) {
+		res = Data.at(selected).Swimmer;
+		if (clicked !== -1) {
+			res += ": " + Data.at(selected).SwimEvents.at(clicked);
+		}
+	}
+	return (
+		<h1>{res}</h1>
+	)
   }
 
   // TODO: Add transition animation
@@ -84,7 +98,10 @@ export default function Accordion() {
 	 </div>
 	</div>
 	<div className="right-container">
-		<h1 className="header">Stats</h1>
+		<span>{selected === null ? 
+		<h1 className="header">Stats</h1> :
+		<h1 className="header">{displayAccHeader()}</h1>}
+		</span>
 		<span>{displaySwimmer === selected && displayEvent === clicked ? 
 			<motion.div
 				initial={{opacity: 0}}
@@ -95,7 +112,8 @@ export default function Accordion() {
 						years={Data.at(selected).Years.at(clicked)} 
 						times={Data.at(selected).Times.at(clicked)} 
 						name={Data.at(selected).Swimmer} 
-						event={Data.at(selected).SwimEvents.at(clicked)}/> 
+						event={Data.at(selected).SwimEvents.at(clicked)}
+						displayOld={true}/> 
 				</div>
 			</motion.div> :
 			<div className="no-plot"> (nothing plotted) </div> 

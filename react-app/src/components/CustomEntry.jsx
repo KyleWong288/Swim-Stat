@@ -7,9 +7,9 @@ import './Accordion.css';
 import GoogleChart from './charts/GoogleChart';
 
 // Upload Data: create or updates data
-// View All: Reads past database entries
+// Past Entries: Reads past database entries
 export default function CustomEntry() {
-    const [upload, showUpload] = useState(true); // true shows upload, false shows view all
+    const [upload, showUpload] = useState(true); // true shows upload, false shows past entries
     const [graphName, setGraphName] = useState("");
     const [graphEvent, setGraphEvent] = useState("");
     const [graphYears, setGraphYears] = useState([]);
@@ -26,16 +26,18 @@ export default function CustomEntry() {
                 {upload ? 
                     <div className="separate-header">
                         <h1 className="highlight"> Custom Entry</h1> 
-                        <div className="menu-up"> <MenuButton toggleUpload={toggleUpload} text={"Past Entries"}/> </div>
+                        <div className="menu-up"> <MenuButton toggleUpload={toggleUpload} text={"Past Entries"} setShowGraph={setShowGraph}/> </div>
                     </div> :
                     <div className="separate-header">
-                        <div className="menu-up"><MenuButton toggleUpload={toggleUpload} text={"Custom Entry"}/> </div>
+                        <div className="menu-up"><MenuButton toggleUpload={toggleUpload} text={"Custom Entry"} setShowGraph={setShowGraph}/> </div>
                         <h1 className="highlight"> Past Entries </h1>
                     </div>
                 }  
-                {upload ? <UploadDisplay setGraphName={setGraphName} setGraphEvent={setGraphEvent} 
+                {upload ? 
+                    <UploadDisplay setGraphName={setGraphName} setGraphEvent={setGraphEvent} 
                     setGraphYears={setGraphYears} setGraphTimes={setGraphTimes} setShowGraph={setShowGraph}/> : 
-                    <PastEntries/>
+                    <PastEntries setGraphName={setGraphName} setGraphEvent={setGraphEvent} 
+                    setGraphYears={setGraphYears} setGraphTimes={setGraphTimes} setShowGraph={setShowGraph} />
                 }
             </div>
             <div className="right-container">
@@ -46,7 +48,8 @@ export default function CustomEntry() {
                         years={graphYears}
                         times={graphTimes}
                         name={graphName}
-                        event={graphEvent}/>
+                        event={graphEvent}
+                        displayOld={upload}/>
                     </div> :
                     <div className="no-plot"> (nothing plotted) </div> 
                 }

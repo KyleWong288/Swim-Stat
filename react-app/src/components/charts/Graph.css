@@ -54,3 +54,9 @@
     padding-left: 2rem;
     padding-right: 2rem;
 }
+
+.times-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

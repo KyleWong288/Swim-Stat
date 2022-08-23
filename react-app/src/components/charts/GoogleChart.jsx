@@ -7,14 +7,6 @@ import { motion } from "framer-motion";
 // PLAN: Better than Chart.js, smooth lines appeal to my smooth brain
 // TODO: Maybe add min/max for time axis. Make timesToDates more robust for edge cases
 
-const testData = [
-    ["Year", "Time"],
-    [2018, new Date("2022-06-09 0:01:30.00")],
-    [2019, new Date("2022-06-09 0:01:10.00")],
-    [2020, new Date("2022-06-09 0:01:00.00")],
-    [2021, new Date("2022-06-09 0:00:55.00")],
-]
-
 // convert times to date for charting
 function timesToDates(timesArray) {
 	const datesArray = [];
@@ -64,7 +56,7 @@ function getLast3(regArray) {
     return res;
 }
 
-export default function GoogleChart({years, times, name, event}) {
+export default function GoogleChart({years, times, name, event, displayOld}) {
     const regArray = linearRegression(years, times);
     const resData = mergeData(regArray[0], regArray[1]);
     const last3 = getLast3(regArray);
@@ -100,20 +92,31 @@ export default function GoogleChart({years, times, name, event}) {
 
     return (
         <div>
-            <div className="times-separate">
+            <div className={displayOld ? "times-separate" : "times-centered"}>
                 <div>
-                    <h1 className="times-header">
-                        Year:
-                        <div> Time: </div>
-                    </h1>
-                    <div>
+                    <span>{displayOld ? 
+                        <div>
+                            <h1 className="times-header">
+                                Year:
+                                <div> Time: </div>
+                            </h1>
+                            {years.map((item,index) => (
+                                <div className="times">
+                                    {years.at(index)}
+                                    <div>{times.at(index)}</div>
+                                </div>
+                            ))}
+                        </div> :
+                        <div> {null} </div> }  
+                    </span>
+                    {/* <div>
                         {years.map((item,index) => (
                             <div className="times">
                                 {years.at(index)}
                                 <div>{times.at(index)}</div>
                             </div>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
                 <div>
                     <h1 className="times-header">
