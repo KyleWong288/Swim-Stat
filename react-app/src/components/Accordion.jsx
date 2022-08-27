@@ -76,7 +76,7 @@ export default function Accordion() {
 						<motion.div
 							initial={{width: "50%", opacity: 0}}
 							animate={{width: "100%", opacity: 1, transition: {duration: 0.9}}}
-							exit={{x: window.innerWidth, opacity: 0}}>
+							exit={{opacity: 0}}>
 							{Data.at(index).SwimEvents.map((jtem, jndex) => (
 								<div className="swim-events">
 									{item.SwimEvents.at(jndex)}

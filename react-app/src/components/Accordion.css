@@ -6,7 +6,7 @@
     max-width: 640px;
     display: inline-block;
     float: left;
-    border-radius: 8px;
+    border-radius: 4px;
     border: solid;
     border-color: white;
 }
@@ -19,7 +19,7 @@
     width: 100vw;
     display: inline-block;
     float: left;
-    border-radius: 8px;
+    border-radius: 4px;
     border: solid;
     border-color: white;
 }
@@ -135,8 +135,8 @@
     justify-content: center;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     border-bottom: solid;
 }
 
