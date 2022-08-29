@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CustomEntry from '../components/CustomEntry';
-import GoogleChart from '../components/charts/GoogleChart';
+import { motion } from "framer-motion";
 import Axios from 'axios';
 import "./Page2.css";
 // TODO: Add framer motion once this page is finished
@@ -43,33 +43,10 @@ export default function Page2() {
     };
 
     return (
-        <div className="body-page2">
-            <CustomEntry/>
-            {/* <label>Name</label>
-            <input type="text" style={{border: 'solid'}}
-                onChange={(event) => {setSwimmer(event.target.value)}} />
-            <label>Event</label>
-            <input type="text" style={{border: 'solid'}} 
-                onChange={(event) => {setSwimEvent(event.target.value)}}/>
-            <label>Year</label>
-            <input type="text" style={{border: 'solid'}}
-                onChange={(event) => {setYear(event.target.value)}}/>
-            <label>Time</label>
-            <input type="text" style={{border: 'solid'}}
-                onChange={(event) => {setTime(event.target.value)}}/>
-            <button className='button' onClick={addTime}> Add Time </button>
-            <button className='button' onClick={addYear}> Add Year </button>
-            <button className='button' onClick={addToList}> Add To List </button>
-            <h1> Swim List: </h1>
-            {swimList.map((item, index) => {
-                return (
-                <div> 
-                    <h1> {item.swimmer} </h1>
-                    <h1> {item.swimEvent} </h1>
-                    
-                </div>
-                )
-            })} */}
+        <div>
+            <div className="body-page2">
+                <CustomEntry/>
+            </div>
         </div>
     )
 }
