@@ -3,6 +3,8 @@ import './Graph.css';
 import LineChart from './LineChart';
 import 'chartjs-adapter-date-fns';
 
+// USE GoogleChart.jsx instead
+
 // convert times to date for charting
 function timesToDates(timesArray) {
 	const datesArray = [];

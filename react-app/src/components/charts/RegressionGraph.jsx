@@ -3,6 +3,8 @@ import { Chart as ChartJS } from 'chart.js/auto';
 import LineChart from './LineChart';
 import './LineChart.css';
 
+// USE GoogleChart.jsx instead
+
 const timeData = [
     {x: '2018', y: '2021-06-25 00:00:22.00'},
     {x: '2019', y: '2021-06-25 00:00:21.40'},

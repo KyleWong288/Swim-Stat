@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Page1() {
     return (
         <div>
-            <div className="body">
+            <div className="body">             
                 <Accordion/> 
             </div>
         </div>

@@ -83,4 +83,24 @@ input::placeholder {
     font-size: 16px;
 }
 
+@media only screen and (max-width: 620px) {
+
+    .entry-input {
+        width: 100%;
+        display: inline-block;
+    }
+
+    .entry-button {
+        background: rgb(170, 230, 255);
+        font-size: 14px;
+        font-weight: 600; 
+        color: black;
+        border-radius: 3px;
+        box-shadow: 0px 1.5px 2px rgb(20,20,20);
+        transition: ease 0.3s;
+        margin-top: 1rem;
+    }
+
+}
+
 

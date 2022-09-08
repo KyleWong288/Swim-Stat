@@ -5,7 +5,7 @@ import linearRegression from '../../utils/LinearRegression';
 import { motion } from "framer-motion";
 
 // PLAN: Better than Chart.js, smooth lines appeal to my smooth brain
-// TODO: Maybe add min/max for time axis. Make timesToDates more robust for edge cases
+// TODO: Fix hover effect and time label
 
 // convert times to date for charting
 function timesToDates(timesArray) {
@@ -109,19 +109,15 @@ export default function GoogleChart({years, times, name, event, displayOld}) {
                         </div> :
                         <div> {null} </div> }  
                     </span>
-                    {/* <div>
-                        {years.map((item,index) => (
-                            <div className="times">
-                                {years.at(index)}
-                                <div>{times.at(index)}</div>
-                            </div>
-                        ))}
-                    </div> */}
                 </div>
                 <div>
                     <h1 className="times-header">
                         Year:
-                        <div> Predicted Time: </div>
+                        <span> {window.innerWidth >= 520 ? 
+                            <div> Predicted Time: </div> : 
+                            <div> Predicted: </div>
+                        } </span>
+                        
                     </h1>
                     <div>
                         {last3[0].map((item,index) => (
@@ -139,7 +135,7 @@ export default function GoogleChart({years, times, name, event, displayOld}) {
                     data={resData}
                     options={options}
                     width="100%"
-                    height="300px"
+                    height={window.innerWidth >= 520 ? "300px" : "200px"}
                 />
             </div>
         </div>
