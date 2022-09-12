@@ -49,7 +49,7 @@ export default function UploadData(props) {
             alert("Error: Select a distance");
             return;
         }
-        else if (stroke === "Stroke" || swimEvent === "") {
+        else if (stroke === "Stroke" || stroke === "") {
             alert("Error: Select a stroke");
             return;
         }
@@ -79,31 +79,39 @@ export default function UploadData(props) {
     }
 
     return (
-        <form onSubmit={handleUpload}>
-            <div className="entry-input">
-                <input value={name} onChange={e => setName(e.target.value)} className="textbox-name" type="text" placeholder="name:"></input>
-                <select value={swimEvent} onChange={e => setSwimEvent(e.target.value)} className="year-dropdown">
-                    <option className="option-small" >Distance</option>
-                    <option className="option-small" value="50">50</option>
-                    <option className="option-small" value="100">100</option>
-                    <option className="option-small" value="200">200</option>
-                    <option className="option-small" value="400">400</option>
-                    <option className="option-small" value="500">500</option>
-                    <option className="option-small" value="800">800</option>
-                    <option className="option-small" value="1000">1000</option>
-                    <option className="option-small" value="1500">1500</option>
-                    <option className="option-small" value="1650">1650</option>
-                </select>
-                <select value={stroke} onChange={e => setStroke(e.target.value)} className="year-dropdown">
-                    <option className="option-small" >Stroke</option>
-                    <option className="option-small" value="Free">Free</option>
-                    <option className="option-small" value="Back">Back</option>
-                    <option className="option-small" value="Breast">Breast</option>
-                    <option className="option-small" value="Fly">Fly</option>
-                    <option className="option-small" value="IM">IM</option>
-                </select>
-                <button className="entry-button"> Upload </button>
-            </div>
-        </form>
+        <div>
+            <form onSubmit={handleUpload}>
+                <div className="entry-input">
+                    <input value={name} onChange={e => setName(e.target.value)} className="textbox-name" type="text" placeholder="name:"></input>
+                    <div className="center-720">
+                        <select value={swimEvent} onChange={e => setSwimEvent(e.target.value)} className="year-dropdown">
+                            <option className="option-small" value="">Distance</option>
+                            <option className="option-small" value="50">50</option>
+                            <option className="option-small" value="100">100</option>
+                            <option className="option-small" value="200">200</option>
+                            <option className="option-small" value="400">400</option>
+                            <option className="option-small" value="500">500</option>
+                            <option className="option-small" value="800">800</option>
+                            <option className="option-small" value="1000">1000</option>
+                            <option className="option-small" value="1500">1500</option>
+                            <option className="option-small" value="1650">1650</option>
+                        </select>
+                    </div>
+                    <div className="center-720">
+                        <select value={stroke} onChange={e => setStroke(e.target.value)} className="year-dropdown">
+                            <option className="option-small" value="">Stroke</option>
+                            <option className="option-small" value="Free">Free</option>
+                            <option className="option-small" value="Back">Back</option>
+                            <option className="option-small" value="Breast">Breast</option>
+                            <option className="option-small" value="Fly">Fly</option>
+                            <option className="option-small" value="IM">IM</option>
+                        </select>
+                    </div>
+                    <div className="center-720">
+                        <button className="entry-button"> Upload </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     )
 }

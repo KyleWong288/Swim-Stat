@@ -22,38 +22,42 @@ export default function CustomEntry() {
 
     return (
         <div>
-            <div className="left-container">
-                {upload ? 
-                    <div className="separate-header">
-                        <h1 className="highlight"> Custom Entry</h1> 
-                        <div className="menu-up"> <MenuButton toggleUpload={toggleUpload} text={"Past Entries"} setShowGraph={setShowGraph}/> </div>
-                    </div> :
-                    <div className="separate-header">
-                        <div className="menu-up"><MenuButton toggleUpload={toggleUpload} text={"Custom Entry"} setShowGraph={setShowGraph}/> </div>
-                        <h1 className="highlight"> Past Entries </h1>
+            <div className="custom-wrap">
+                <div className="custom-main">
+                    <div className="left-container">
+                        {upload ? 
+                            <div className="separate-header">
+                                <h1 className="highlight"> Custom Entry</h1> 
+                                <div className="menu-up"> <MenuButton toggleUpload={toggleUpload} text={"Past Entries"} setShowGraph={setShowGraph}/> </div>
+                            </div> :
+                            <div className="separate-header">
+                                <div className="menu-up"><MenuButton toggleUpload={toggleUpload} text={"Custom Entry"} setShowGraph={setShowGraph}/> </div>
+                                <h1 className="highlight"> Past Entries </h1>
+                            </div>
+                        }  
+                        {upload ? 
+                            <UploadDisplay setGraphName={setGraphName} setGraphEvent={setGraphEvent} 
+                            setGraphYears={setGraphYears} setGraphTimes={setGraphTimes} setShowGraph={setShowGraph}/> : 
+                            <PastEntries setGraphName={setGraphName} setGraphEvent={setGraphEvent} 
+                            setGraphYears={setGraphYears} setGraphTimes={setGraphTimes} setShowGraph={setShowGraph} />
+                        }
                     </div>
-                }  
-                {upload ? 
-                    <UploadDisplay setGraphName={setGraphName} setGraphEvent={setGraphEvent} 
-                    setGraphYears={setGraphYears} setGraphTimes={setGraphTimes} setShowGraph={setShowGraph}/> : 
-                    <PastEntries setGraphName={setGraphName} setGraphEvent={setGraphEvent} 
-                    setGraphYears={setGraphYears} setGraphTimes={setGraphTimes} setShowGraph={setShowGraph} />
-                }
-            </div>
-            <div className="right-container">
-                <h1 className="header">Stats</h1>
-                <span> {showGraph === true ? 
-                    <div>
-                    <GoogleChart
-                        years={graphYears}
-                        times={graphTimes}
-                        name={graphName}
-                        event={graphEvent}
-                        displayOld={upload}/>
-                    </div> :
-                    <div className="no-plot"> (nothing plotted) </div> 
-                }
-                </span>
+                    <div className="right-container">
+                        <h1 className="header">Stats</h1>
+                        <span> {showGraph === true ? 
+                            <div>
+                            <GoogleChart
+                                years={graphYears}
+                                times={graphTimes}
+                                name={graphName}
+                                event={graphEvent}
+                                displayOld={upload}/>
+                            </div> :
+                            <div className="no-plot"> (nothing plotted) </div> 
+                        }
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     )

@@ -113,7 +113,7 @@ export default function GoogleChart({years, times, name, event, displayOld}) {
                 <div>
                     <h1 className="times-header">
                         Year:
-                        <span> {window.innerWidth >= 520 ? 
+                        <span> {window.innerWidth >= 720 ? 
                             <div> Predicted Time: </div> : 
                             <div> Predicted: </div>
                         } </span>

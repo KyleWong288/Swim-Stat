@@ -29,11 +29,11 @@
     float: right;
     border-radius: 3px;
     box-shadow: 0px 1.5px 2px rgb(20,20,20);
-    transition: ease 0.3s;
-    margin-top: 1rem;
+    margin-top: 1.1rem;
 }
 
 .entry-button:hover {
+    transition: ease 0.5s;
     background: white;
     box-shadow: none;
 }
@@ -83,24 +83,53 @@ input::placeholder {
     font-size: 16px;
 }
 
-@media only screen and (max-width: 620px) {
+@media only screen and (max-width: 720px) {
 
     .entry-input {
-        width: 100%;
-        display: inline-block;
+        display: grid;
+        width: fit-content;
+    }
+
+    .textbox-name {
+        width: 50vw;
+        max-width: 300px;
+    }
+
+    .textbox-small {
+        width: 50vw;
+        max-width: 300px;
+        margin-bottom: 0rem;
+        margin-top: 0.5rem;
+    }
+
+    .center-small {
+        background-color: orange;
+        display: grid;
+        justify-content: center;
+    }
+
+    .year-dropdown {
+        width: 50vw;
+        max-width: 300px;
+        margin-top: 0.5rem;
+        margin-bottom: 0rem;
+    }
+
+    .center-720 {
+        display: flex;
+        justify-content: center;
+    }
+
+    .center-button {
+        display: flex;
+        justify-content: center;
     }
 
     .entry-button {
-        background: rgb(170, 230, 255);
-        font-size: 14px;
-        font-weight: 600; 
-        color: black;
-        border-radius: 3px;
-        box-shadow: 0px 1.5px 2px rgb(20,20,20);
-        transition: ease 0.3s;
-        margin-top: 1rem;
+        width: 32vw;
+        max-width: 200px;
+        margin-top: 0.5rem;
     }
-
 }
 
 

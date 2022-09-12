@@ -1,6 +1,5 @@
 .left-container {
     background-color: #333;
-    margin-left: 16px;
     margin-top: 2rem;
     width: 100vw;
     max-width: 600px;
@@ -9,13 +8,11 @@
     border-radius: 4px;
     border: solid;
     border-color: white;
-    margin-right: 3rem;
 }
 
 .right-container {
     background-color: #333;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 3.6rem;
     margin-top: 2rem;
     max-width: 600px;
     width: 100vw;
@@ -171,6 +168,10 @@
         margin-right: 0rem;
     }
 
+    .right-container {
+        margin-left: 0rem;
+    }
+
     .scrollable {
         height: 55vh;
         overflow-y: auto;
@@ -183,11 +184,13 @@
 
     .left-container {
         width: 92vw;
+        margin-left: 6px;
         margin-right: 0rem;
     }
     
     .right-container {
         width: 92vw;
+        margin-left: 6px;
         margin-right: 0rem;
         max-width: 600px;
         overflow-x: hidden;

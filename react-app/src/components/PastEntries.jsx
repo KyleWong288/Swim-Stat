@@ -31,29 +31,31 @@ export default function PastEntries(props) {
 
     return (
         <div>
-            <div className="wrapper">
-                <div className="accordion">
-                    {data.map((item,index) => (
-                        <div className="item">
-                            <div className="title" onClick={() => toggleClick(index)}>
-                                <h1>{item.swimmer + ": " + item.swimEvent}</h1>
-                                <span className="caret">{selected === index ? <CaretUp/> : <CaretDown/>}</span>
+            <div className="scrollable">
+                <div className="wrapper">
+                    <div className="accordion">
+                        {data.map((item,index) => (
+                            <div className="item">
+                                <div className="title" onClick={() => toggleClick(index)}>
+                                    <h1>{item.swimmer + ": " + item.swimEvent}</h1>
+                                    <span className="caret">{selected === index ? <CaretUp/> : <CaretDown/>}</span>
+                                </div>
+                                <div>
+                                    {selected === index ? 
+                                        <div>
+                                            {item.swimYears.map((jtem, jndex) => (
+                                                <div className="past-events">
+                                                    {item.swimYears.at(jndex)}
+                                                    <div className="time-right">{item.swimTimes.at(jndex)}</div>
+                                                </div>
+                                            ))}
+                                        </div> :
+                                        <div> {null} </div>
+                                    }
+                                </div>
                             </div>
-                            <div>
-                                {selected === index ? 
-                                    <div>
-                                        {item.swimYears.map((jtem, jndex) => (
-                                            <div className="past-events">
-                                                {item.swimYears.at(jndex)}
-                                                <div className="time-right">{item.swimTimes.at(jndex)}</div>
-                                            </div>
-                                        ))}
-                                    </div> :
-                                    <div> {null} </div>
-                                }
-                            </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
