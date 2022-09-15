@@ -7,13 +7,10 @@ import { AnimatePresence } from 'framer-motion';
 export default function AnimatedRoutes() {
     const location = useLocation();
     return (
-        // NOT using AnimatePresence because weird transition when changing pages
-        // <AnimatePresence> 
-            <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<Home/>} />
-                <Route path="/popular" element={<Page1/>} />
-                <Route path="/custom" element={<Page2/>} />
-            </Routes>
-        // </AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<Home/>} />
+            <Route path="/popular" element={<Page1/>} />
+            <Route path="/custom" element={<Page2/>} />
+        </Routes>
     )
 }

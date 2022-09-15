@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { ReactComponent as CaretDown } from './caret-down.svg';
+import { ReactComponent as CaretDown } from '../assets/caret-down.svg';
 import { motion } from "framer-motion";
 import './LandingPage.css';
-import './Accordion.css';
+import '../PopularPage/Accordion.css';
 
 export default function LandingPage() {
 

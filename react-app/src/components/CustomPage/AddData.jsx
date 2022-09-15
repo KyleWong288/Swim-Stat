@@ -1,15 +1,6 @@
 import React, {useState} from 'react';
 import './UploadDisplay.css';
 
-function isValidInput(input) {
-    for (let i=0; i<input.length; i++) {
-        if (input[i] > '9' || input[i] < '0') {
-            return false;
-        }
-    }
-    return true;
-}
-
 function isValidTime(minutes, seconds, hundreths) {
     if (isNaN(minutes) || isNaN(seconds) || isNaN(hundreths)) {
         return false;
@@ -43,18 +34,6 @@ export default function AddData(props) {
     // TODO: maybe make utility function for this
     function handleAdd(e) {
         e.preventDefault();
-        // if (!isValidInput(minutes)) {
-        //     alert("Error: invalid minutes entry");
-        //     return;
-        // }
-        // if (!isValidInput(seconds)) {
-        //     alert("Error: invalid seconds entry");
-        //     return;
-        // }
-        // if (!isValidInput(hundreths)) {
-        //     alert("Error: invalid hundreths entry");
-        //     return;
-        // }
         let m = parseInt(minutes);
         if (minutes === "" || minutes == undefined) {
             m = 0;
@@ -68,23 +47,23 @@ export default function AddData(props) {
             h = 0;
         }
         if (!isValidTime(m, s, h)) {
-            alert("Error: invalid entry");
+            alert("Error: Invalid entry");
             return;
         }
         else if (m < 0 || m > 59) {
-            alert("Error: minutes must be between 0 and 59");
+            alert("Error: Minutes must be between 0 and 59");
             return;
         }
         else if (s < 0 || s > 59) {
-            alert("Error: seconds must be between 0 and 59");
+            alert("Error: Seconds must be between 0 and 59");
             return;
         }
         else if (h < 0 || h > 99) {
-            alert("Error: hundreths must be between 0 and 99");
+            alert("Error: Hundreths must be between 0 and 99");
             return;
         }
-        else if (year == 0) {
-            alert("Error: choose a valid year");
+        else if (year == 0 || isNaN(year)) {
+            alert("Error: Choose a valid year");
             return;
         }
         const time = makeTime(m,s,h);

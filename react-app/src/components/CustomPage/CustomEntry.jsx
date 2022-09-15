@@ -3,8 +3,8 @@ import UploadDisplay from './UploadDisplay';
 import PastEntries from './PastEntries';
 import MenuButton from './MenuButton';
 import './CustomEntry.css';
-import './Accordion.css';
-import GoogleChart from './charts/GoogleChart';
+import '../PopularPage/Accordion.css';
+import GoogleChart from '../charts/GoogleChart';
 
 // Upload Data: create or updates data
 // Past Entries: Reads past database entries

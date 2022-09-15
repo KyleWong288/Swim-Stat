@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ReactComponent as CaretDown } from './caret-down.svg';
-import { ReactComponent as CaretUp } from './caret-up.svg';
+import { ReactComponent as CaretDown } from '../assets/caret-down.svg';
+import { ReactComponent as CaretUp } from '../assets/caret-up.svg';
 import Axios from 'axios';
 import './PastEntries.css';
 

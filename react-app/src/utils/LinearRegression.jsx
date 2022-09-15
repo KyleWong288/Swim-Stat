@@ -1,8 +1,5 @@
 // Contains utility functions for regression
 
-// const testYears = [2016, 2017, 2018, 2019, 2020, 2021, 2022]
-// const testTimes = ["2:12.22", "1:00.86", "1:01.50", "59.50", "50.90", "49.60", "9.00"]
-
 // Input: array of times (string). Output: array of converted doubles
 export function timesToNum(times) {
     const res = [];
@@ -180,5 +177,4 @@ export default function linearRegression(yearsData, timesData) {
     return res;
 }
 
-// linearRegression(testYears, testTimes);
 

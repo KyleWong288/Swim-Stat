@@ -1,7 +1,5 @@
-import Accordion from "../components/Accordion";
-import LandingPage from "../components/LandingPage";
+import LandingPage from "../components/LandingPage/LandingPage";
 import "./Home.css";
-import { motion } from "framer-motion";
 
 // TODO: Dynamic view size
 // Really scuffed bottom padding, maybe update it

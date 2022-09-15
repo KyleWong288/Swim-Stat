@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as RemoveEntryIcon } from './remove-entry.svg';
+import { ReactComponent as RemoveEntryIcon } from '../assets/remove-entry.svg';
 import './Entry.css';
 
 export default function Entry(props) {

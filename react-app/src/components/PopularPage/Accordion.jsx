@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import { Data } from './charts/Data';
+import { Data } from '../charts/Data';
 import './Accordion.css';
-import { ReactComponent as CaretDown } from './caret-down.svg';
-import { ReactComponent as CaretUp } from './caret-up.svg';
-import GoogleChart from './charts/GoogleChart';
+import { ReactComponent as CaretDown } from '../assets/caret-down.svg';
+import { ReactComponent as CaretUp } from '../assets/caret-up.svg';
+import GoogleChart from '../charts/GoogleChart';
 import { motion } from "framer-motion";
 
 // TODO: Change the "Stats" header to swimmer name and event when graphed

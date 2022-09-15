@@ -2,10 +2,8 @@ import React from 'react';
 import { Chart } from "react-google-charts";
 import './Graph.css';
 import linearRegression from '../../utils/LinearRegression';
-import { motion } from "framer-motion";
 
-// PLAN: Better than Chart.js, smooth lines appeal to my smooth brain
-// TODO: Fix hover effect and time label
+// Better than Chart.js, smooth lines appeal to my smooth brain
 
 // convert times to date for charting
 function timesToDates(timesArray) {
@@ -87,7 +85,8 @@ export default function GoogleChart({years, times, name, event, displayOld}) {
             easing: "inAndOut",
             duration: 1000,
         },
-        
+        enableInteractivity: false,
+        legend: "none",
     }
 
     return (

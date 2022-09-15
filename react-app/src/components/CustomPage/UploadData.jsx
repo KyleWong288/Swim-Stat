@@ -37,8 +37,8 @@ export default function UploadData(props) {
         const data = props.entryData;
         const localYears = splitYears(props.entryData);
         const localTimes = splitTimes(props.entryData);
-        if (data.length < 2) { // UPDATE TO AT LEAST 4 ENTRIES
-            alert("Error: Input at least 2 entries");
+        if (data.length < 3) { // Maybe make 4?
+            alert("Error: Input at least 3 entries");
             return;
         }
         else if (name.length < 1) {
