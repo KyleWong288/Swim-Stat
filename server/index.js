@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+require('dotenv').config();
 
 const SwimModel = require("./models/swim-schema");
 
@@ -9,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-    "mongodb+srv://Kylewong:Kylewong1@crud.imbs0ja.mongodb.net/swim?retryWrites=true&w=majority", 
+    process.env.MONGOCONNECT, 
     {
         useNewUrlParser: true,
     }
