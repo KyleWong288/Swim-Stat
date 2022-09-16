@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-    "mongodb+srv://Kylewong:Kylewong1@crud.imbs0ja.mongodb.net/swim?retryWrites=true&w=majority",
+    process.env.MONGOURI,
     {
         useNewUrlParser: true,
     }

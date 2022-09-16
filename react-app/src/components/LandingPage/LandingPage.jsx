@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ReactComponent as CaretDown } from '../assets/caret-down.svg';
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import './LandingPage.css';
 import '../PopularPage/Accordion.css';
 
@@ -28,8 +29,8 @@ export default function LandingPage() {
                                     animate={{opacity: 1}}
                                     exit={{opacity: 0}}>
                                     <div className="card-body">
-                                        <a href="custom" className="card-line">Want to know your future times?</a>
-                                        <a href="popular" className="card-line">Want to know the future times of your favorite swimmers?</a>
+                                        <Link to="/custom" className="card-line">Want to know your future times?</Link>
+                                        <Link to="/popular" className="card-line">Want to know the future times of your favorite swimmers?</Link>
                                     </div>
                                 </motion.div> :
                                 <motion.div
