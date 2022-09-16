@@ -1,0 +1,81 @@
+.times-header {
+    background: rgb(30,30,30);
+    color: white;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1rem;
+    border-radius: 4px;
+    width: 240px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.times { 
+    background: rgb(30,30,30);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 0.5rem;
+    border-radius: 3px;
+    width: 240px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.graph-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    padding-top: 1rem;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.chart-container {
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    background: white;
+    margin-top: 1rem;
+}
+
+.times-separate {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.times-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 720px) {
+
+    .times-separate {
+        padding-left: 4vw;
+        padding-right: 4vw;
+    }
+    .times-header {
+        width: 40vw;
+        max-width: 240px;
+    }
+
+    .times {
+        width: 40vw;
+        max-width: 240px;
+    }
+
+    .chart-container {
+        padding-bottom: 1rem;
+    }
+
+}
