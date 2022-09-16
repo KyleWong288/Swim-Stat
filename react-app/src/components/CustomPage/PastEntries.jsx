@@ -24,7 +24,7 @@ export default function PastEntries(props) {
     }
 
     useEffect(() => {
-        Axios.get("http://localhost:3001/read").then((response) => {
+        Axios.get("https://swimstat.herokuapp.com/read").then((response) => {
             setData(response.data);
         })
     }, []) 

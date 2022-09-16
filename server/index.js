@@ -1,8 +1,8 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
-require('dotenv').config();
 
 const SwimModel = require("./models/swim-schema");
 
@@ -10,11 +10,15 @@ app.use(express.json());
 app.use(cors());
 
 mongoose.connect(
-    process.env.MONGOCONNECT, 
+    "mongodb+srv://Kylewong:Kylewong1@crud.imbs0ja.mongodb.net/swim?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
     }
 );
+
+mongoose.connection.on('connected', () => {
+    console.log("mongoose connected")
+});
 
 app.post("/insert", async (req, res) => {
     const swimmer = req.body.swimmer;
@@ -39,6 +43,6 @@ app.get("/read", async (req, res) => {
     });
 });
 
-app.listen(3001, () => {
-    console.log('Server running on port 3001...');
+app.listen(process.env.PORT || 3001, () => {
+    console.log('Server running');
 });

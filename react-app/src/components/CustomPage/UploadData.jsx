@@ -65,7 +65,7 @@ export default function UploadData(props) {
         props.setGraphYears(localYears);
         props.setGraphTimes(localTimes);
         // Axios POST request:
-        Axios.post("http://localhost:3001/insert", {
+        Axios.post("https://swimstat.herokuapp.com/insert", {
             swimmer: name,
             swimEvent: swimEvent + " " + stroke,
             swimYears: localYears,
